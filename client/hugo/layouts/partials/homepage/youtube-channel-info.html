@@ -1,0 +1,17 @@
+{{ $info := index .items 0 }}
+{{ $brand := $info.brandingSettings.channel }}
+{{ $brandImg := $info.brandingSettings.image.bannerExternalUrl }}
+{{ $stat := $info.statistics }}
+{{ $brandImg = partial "common/get-remote-img" $brandImg }}
+{{ $channelLogo := $info.snippet.thumbnails.default.url }}
+{{ $channelLogo = partial "common/get-remote-img" $channelLogo }}
+
+{{/*  <pre>Channel: {{ debug.Dump  . }}</pre>  */}}
+{{/*  <pre>Channel info: {{ debug.Dump $info }}</pre>  */}}
+{{/*  <pre>Channel length: {{ debug.Dump (len .) }}</pre>  */}}
+
+<h2>YouTube канал {{ $brand.title }}</h2>
+<p>{{ $brand.description }}</p>
+{{/*  <img src="{{ $brandImg.RelPermalink }}" alt="" width={{ $brandImg.Width }} height={{ $brandImg.Height }}>  */}}
+<img src="{{ $channelLogo.RelPermalink }}" alt="channel logo" width={{ $channelLogo.Width }} height={{ $channelLogo.Height }}>
+<p>Количество подписчиков: {{ substr $stat.subscriberCount 0 -3 }} тыс., всего видео: {{ $stat.videoCount }}, всего просмотров: {{ $stat.viewCount }}</p>

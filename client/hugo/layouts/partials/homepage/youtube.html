@@ -1,0 +1,90 @@
+{{ $feed := partial "func/youtube-feed-fetcher.html" . }}
+{{ $channelData := index (where $feed "kind" "youtube#channelListResponse") 0 }}
+{{ $playlistsData := where $feed "kind" "youtube#playlistItemListResponse" }}
+
+{{ partial "homepage/youtube-channel-info" $channelData }}
+
+<div class="youtube-feed">
+    {{/*  {{ with $feed.entry }}
+        {{ len . }}
+        {{ range . }}
+            {{$thumbUrl := index .group.thumbnail "-url" }}
+            {{$ytLink := index .link "-href" }}
+            <div class="video-card">
+                <h3>{{ .title }}</h3>
+                <div class="video-thumbnail">
+                    <a href="{{ $ytLink }}" target="_blank">
+                        <img src="{{ $thumbUrl }}" alt="{{ .title }}">
+                    </a>
+                </div>
+                <div class="video-meta">
+                    <p class="published">Published: {{ dateFormat "Jan 2, 2006" .published }}</p>
+                    <p class="description">{{ .group.description | truncate 150 }}</p>
+                </div>
+            </div>
+        {{ end }}
+    {{ end }}  */}}
+</div>
+
+
+
+<pre>debug: {{ debug.Dump (len $feed) }}</pre>
+{{/*  {{ partial "homepage/youtube-channel-info" (dict "channelData" $channelData "playlistsData" $playlistsData) }}  */}}
+
+<pre>playlists length: {{ debug.Dump (len $playlistsData) }}</pre>
+{{/*  {{ warnf "Fetched YouTube feed from %s" $feed }}  */}}
+
+
+{{/*  # assets/scss/youtube.scss  */}}
+<style>
+    .youtube-feed {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        padding: 1rem;
+
+        .video-card {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s;
+
+            &:hover {
+                transform: translateY(-5px);
+            }
+
+            h3 {
+                padding: 1rem;
+                margin: 0;
+                font-size: 1.2rem;
+            }
+
+            .video-thumbnail {
+                aspect-ratio: 16 / 9;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            .video-meta {
+                padding: 1rem;
+
+                .published {
+                    margin: 0;
+                    color: #666;
+                    font-size: 0.9rem;
+                }
+
+                .description {
+                    margin: 0;
+                    margin-top: 0.5rem;
+                    font-size: 0.95rem;
+                    line-height: 1.5;
+                }
+            }
+        }
+    }
+</style>

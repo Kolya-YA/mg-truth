@@ -1,0 +1,23 @@
+{{- $apiURL := .Site.Params.youtube.feedURL }}
+{{- $channelId := .Site.Params.youtube.channelId }}
+{{- $playlistsIds := delimit .Site.Params.youtube.playListsIds "," }}
+
+{{ $feedURL := printf "%s?channelId=%s" $apiURL $channelId }}
+{{ $feedURL = printf "%s&playListsIds=%s" $feedURL $playlistsIds }}
+{{ $feed := dict }}
+{{ warnf "Fetching YouTube data from %s" $feedURL }}
+
+
+{{ with try (resources.GetRemote $feedURL) }}
+    {{ with .Err }}
+        {{ errorf "%s" . }}
+    {{ else with .Value}}
+        {{ $feed = . | transform.Unmarshal }}
+    {{ end }}
+{{ else }}
+    {{ errorf "Failed to fetch YouTube feed from %s" $feedURL }}
+{{ end }}
+
+{{ return $feed }}
+
+{{/*  http://localhost:8787/?channelId=UCA_2oV10_uipWBWlyfJj16w&playListsIds=PLnPDytUjzMjorEFqrGw5xZmf_WEfip1WP,PLnPDytUjzMjqVgdw4DZkWlphQaWpTFBU6  */}}

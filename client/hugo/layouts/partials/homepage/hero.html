@@ -1,0 +1,25 @@
+{{ $heroBg := resources.Get (path.Join "images" .Site.Params.HeroBackground) }}
+{{ $phone := index site.Params.phones 0 }}
+{{ $email := site.Params.email  }}
+{{ with and $heroBg ($heroBg.Resize "1200x webp") }}
+<div class="hero" role="banner" style="--hero-bg-image: url('{{ .RelPermalink }}');">
+{{ end }}
+    <div class="width-wrapper">
+        <div class="hero__block">
+            <div class="hero__content">
+                <h2 class="hero__content-title">HERO — {{ site.Params.heroTitle}}</h2>
+                <ul>
+                    {{- range .Site.Menus.service -}}
+                        {{- if ne .Name "FAQ"}}
+                        <li class="services__item">{{ .Name }}</li>
+                        {{- end }}
+                    {{- end }}
+                </ul>
+                <div class="hero__contact">
+                    <a href="tel:{{ replaceRE "\\s" "" $phone  }}">{{ $phone }}</a>
+                    <a href="mailto:{{ $email }}">{{ $email }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

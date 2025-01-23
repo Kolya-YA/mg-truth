@@ -1,0 +1,20 @@
+# Schema definition
+# $schema = "node_modules/wrangler/config-schema.json"
+
+# Basic configuration
+name = "yt-api-proxy"
+main = "src/index.ts"
+compatibility_date = "2025-01-21"
+
+# Observability settings
+[observability]
+enabled = true
+
+# Environment variables
+# https://developers.cloudflare.com/workers/wrangler/configuration/#environment-variables
+[vars]
+YOUTUBE_API_KEY = "AIzaSyDGtAnfCPBMV9fBFruGfHCV-48_QVoM4s8"
+YOUTUBE_CHANNEL_ID = "UCA_2oV10_uipWBWlyfJj16w"
+
+# Note: Use secrets to store sensitive data.
+# https://developers.cloudflare.com/workers/configuration/secrets/

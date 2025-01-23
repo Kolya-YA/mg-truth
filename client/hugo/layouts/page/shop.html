@@ -1,0 +1,16 @@
+{{ define "main" }}
+<section class="shop">
+    <div class="width-wrapper">
+        <div class="shop__block">
+            <h2 class="services__title">Book shop page</h2>
+            <div>{{ .Content }}</div>
+            {{ partial "homepage/full-shop" . }}
+        </div>
+    </div>
+</section>
+{{ end }}
+{{ define "aside" }}
+<aside>
+    {{ partial "homepage/blog" . }}
+</aside>
+{{ end }}

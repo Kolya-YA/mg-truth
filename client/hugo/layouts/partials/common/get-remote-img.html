@@ -1,0 +1,13 @@
+{{ $image := false}}
+{{ with try (resources.GetRemote .) }}
+    {{ with .Err }}
+        {{ errorf "%s" . }}
+    {{ else with .Value }}
+        {{ warnf "get img" .RelPermalink }}
+        {{ $image = . }}
+    {{ else }}
+    {{ errorf "Unable to get remote resource %q" . }}
+    {{ end }}
+{{ end }}
+
+{{ return $image }}

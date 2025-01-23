@@ -1,0 +1,19 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'MG truth'
+
+disableKinds = ["taxonomy", "term", ]
+ignoreFiles = ['/book-shop']
+[params]
+    logoName = "Maaath Gooosy Truth"
+    heroTitle = "MG Truth Site"
+
+    [params.youtube]
+        feedURL = "http://localhost:8787/"
+        channelId = "UCA_2oV10_uipWBWlyfJj16w"  # channel ID
+        playListsIds = [
+            "PLnPDytUjzMjorEFqrGw5xZmf_WEfip1WP", # Ганапольская правда
+            "PLnPDytUjzMjqVgdw4DZkWlphQaWpTFBU6", # В рабочий полдень
+        ]
+        max_videos = 50  # Max qty of videos to show
+

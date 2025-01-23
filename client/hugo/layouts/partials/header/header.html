@@ -1,0 +1,36 @@
+<header class="header">
+    <div class="width-wrapper">
+        <div class="header__block">
+        <a href="{{ site.Home.RelPermalink }}" class="header__logo"
+            title="{{ site.Params.logoName }}. Startseite.">
+            <span class="header__logo-name">{{ site.Params.logoName}}</span>
+        </a>
+        <nav class="header__nav" id="mainnav" data-visibility="hidden"
+            aria-label="Menu">
+            <ul class="header__nav-list">
+                {{- range .Site.Menus.top }}
+                {{- $active := page.IsMenuCurrent "top" . }}
+                <li class="
+                    header__nav-item
+                    {{- if $active }} header__nav-item--active{{ end }}
+                ">
+                    <a href="{{ .URL }}">{{ .Name }}</a>
+                </li>
+                {{ end }}
+            </ul>
+        </nav>
+        <div id="cart-drawer"></div>
+        </div>
+    </div>
+</header>
+{{ define "footer-scripts" }}
+{{ if eq hugo.Environment "development" }}
+<script type="module" src="http://localhost:5173/@vite/client"></script>
+<script type="module"
+    src="http://localhost:5173/src/cart.ts"></script>
+    {{ else }}
+    <script type="module" src="/js/cart.js"></script>
+    {{ end }}
+    {{ end }}
+    <script type="module"
+        src="http://localhost:5173/src/cart.ts"></script>

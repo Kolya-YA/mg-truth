@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ block "title" . }}
+        {{ .Site.Title }}
+        {{ end }}
+    </title>
+</head>
+<body>
+    {{ block "header" . }}
+        {{ partial "header/header" . }}
+    {{ end }}
+    <main id="main-content" class="main">
+        {{ block "main" . }}{{ end }}
+    </main>
+    {{ block "aside" . }}{{ end }}
+    {{ block "footer" . }}
+        {{ partial "footer/footer" . }}
+    {{ end }}
+    {{- partial "footer-scripts" . -}}
+</body>
+</html>

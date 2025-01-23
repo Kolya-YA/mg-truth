@@ -1,0 +1,34 @@
+{{- $jsParams := dict "isProduction" hugo.IsProduction }}
+{{- $buildOptions := dict "target" "es2020" "params" $jsParams }}
+
+{{- $footerScript := resources.Get "js/footer-script.js" | js.Build
+$buildOptions -}}
+{{- if not hugo.IsServer }}
+{{ $footerScript = $footerScript | minify | fingerprint -}}
+{{- end -}}
+<script defer src="{{ $footerScript.RelPermalink }}"></script>
+
+{{- if hugo.IsDevelopment }}
+<script type="module" src="http://localhost:5173/@vite/client"></script>
+<script type="module" src="http://localhost:5173/src/cart.ts"></script>
+{{ else }}
+<script type="module" src="/js/cart.js"></script>
+{{- end }}
+
+{{- if .Page.Store.Get "mini-shop" }}
+{{ if hugo.IsDevelopment }}
+<script type="module"
+  src="http://localhost:5173/src/mini-shop.ts"></script>
+{{ else }}
+<script type="module" src="/js/mini-shop.js"></script>
+{{- end }}
+{{- end }}
+
+{{- if .Page.Store.Get "full-shop" }}
+{{ if hugo.IsDevelopment }}
+<script type="module"
+  src="http://localhost:5173/src/full-shop.ts"></script>
+{{ else }}
+<script type="module" src="/js/full-shop.js"></script>
+{{- end }}
+{{- end }}
