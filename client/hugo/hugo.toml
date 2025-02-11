@@ -25,12 +25,6 @@ ignoreFiles = ['/book-shop']
         url = "/youtube/"
 
     [[menu.top]]
-        name = "Books"
-        weight = 5
-        identifier = "books"
-        url = "/book-shop/"
-
-    [[menu.top]]
         name = "Donate"
         weight = 17
         identifier = "donate"

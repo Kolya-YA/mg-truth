@@ -1,44 +1,40 @@
 :root, ::backdrop {
     /* Colors */
-    --accent-hue: 101; // 101
-    --accent-sat: 0%; //58%
-    
-    --bg-hue: 94; // 94
-    --bg-light-sat: 0%; // 73%
-    --bg-dark-sat: 0%; // 11%
 
     --link-hue: 240; // 240
     --link-sat: 0%; // 33%
 
-    --light-text-color: hsl(0 0% 98%);
     --dark-text-color: hsl(0 0% 20%);
+    --light-text-color: hsl(0 0% 98%);
 
-    --accent-color-night: hsl(var(--accent-hue) var(--accent-sat) 16%);
-    --accent-color-dark: hsl(var(--accent-hue) var(--accent-sat) 26%);
-    --accent-color: hsl(var(--accent-hue) var(--accent-sat) 46%);
-    --accent-color-light: hsl(var(--accent-hue) var(--accent-sat) 66%);
-    
-    --warning-color: hsl(348 56% 47%);
-    
-    --dark-bg-color-dark: hsl(var(--bg-hue) var(--bg-dark-sat) 6%);
-    --dark-bg-color: hsl(var(--bg-hue) var(--bg-dark-sat) 26%);
-    --dark-bg-color-light: hsl(var(--bg-hue) var(--bg-dark-sat) 46%);
-    
-    --light-bg-color-dark: hsl(var(--bg-hue) var(--bg-light-sat) 78%);
-    --light-bg-color: hsl(var(--bg-hue) var(--bg-light-sat), 97%);
-    --light-bg-color-light: hsl(var(--bg-hue) var(--bg-light-sat) 100%);
+    --warning-color: hsl(348 56% 47%);        
 
-    --link-color-dark: hsl(var(--link-hue) var(--link-sat) 50%);
-    --link-color: hsl(var(--link-hue) var(--link-sat) 70%);
-    --link-color-light: hsl(var(--link-hue) var(--link-sat) 90%);
+    --accent-color: hsl(101 50% 46%);
+    --accent-color-night: hsl(from var(--accent-color) h s 16%);
+    --accent-color-dark: hsl(from var(--accent-color) h s 26%);
+    --accent-color-light: hsl(from var(--accent-color) h s 66%);
+
+    --dark-bg-color: hsl(94 0% 26%);
+    --dark-bg-color-dark: hsl(from var(--dark-bg-color) h s 6%);
+    --dark-bg-color-light: hsl(from var(--dark-bg-color) h s 46%);
+    
+    --light-bg-color: hsl(94 0% 97%);
+    --light-bg-color-dark: hsl(from var(--light-bg-color) h s 78%);
+    --light-bg-color-light: hsl(from var(--light-bg-color) h s 100%);
+
+    --link-color: hsl(240 20% 70%);
+    --link-color-dark: hsl(from var(--link-color) h s 50%);
+    --link-color-light: hsl(from var(--link-color) h s 90%);
 
     --dark-bg-gradient: radial-gradient(
-        farthest-corner circle at 9% 73%, hsl(var(--bg-hue) var(--bg-dark-sat) 26%) 5% 5%, 89%, hsl(var(--bg-hue) var(--bg-dark-sat) 46%) 100%
+        farthest-corner circle at 9% 73%,
+        hsl(var(--bg-hue) var(--bg-dark-sat) 26%) 5% 5%, 89%,
+        hsl(var(--bg-hue) var(--bg-dark-sat) 46%) 100%
     );
     
     --box-shadow:
-        0 1px 2px hsl(var(--bg-hue) var(--bg-dark-sat) 25% / 30%),
-        0 1px 3px hsl(var(--bg-hue) var(--bg-dark-sat) 25% / 15%);
+        0 1px 2px hsl(from var(--dark-bg-color) h s 25% / 30%),
+        0 1px 3px hsl(from var(--dark-bg-color) h s 25% / 15%);
 
     --border-radius: 0.2rem;
 

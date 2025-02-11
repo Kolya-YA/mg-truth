@@ -9,7 +9,7 @@
             <div class="hero__content">
                 <h2 class="hero__content-title">HERO — {{ site.Params.heroTitle}}</h2>
                 <ul>
-                    {{- range .Site.Menus.service -}}
+                    {{- range site.Menus.service -}}
                         {{- if ne .Name "FAQ"}}
                         <li class="services__item">{{ .Name }}</li>
                         {{- end }}

@@ -2,38 +2,39 @@
 {{ $channelData := index (where $feed "kind" "youtube#channelListResponse") 0 }}
 {{ $playlistsData := where $feed "kind" "youtube#playlistItemListResponse" }}
 
-{{ partial "homepage/youtube-channel-info" $channelData }}
+<section class="shop shop-home">
+    <div class="width-wrapper">
+        {{ partial "homepage/youtube-channel-info" $channelData }}
 
-<div class="youtube-feed">
-    {{/*  {{ with $feed.entry }}
-        {{ len . }}
-        {{ range . }}
-            {{$thumbUrl := index .group.thumbnail "-url" }}
-            {{$ytLink := index .link "-href" }}
-            <div class="video-card">
-                <h3>{{ .title }}</h3>
-                <div class="video-thumbnail">
-                    <a href="{{ $ytLink }}" target="_blank">
-                        <img src="{{ $thumbUrl }}" alt="{{ .title }}">
-                    </a>
-                </div>
-                <div class="video-meta">
-                    <p class="published">Published: {{ dateFormat "Jan 2, 2006" .published }}</p>
-                    <p class="description">{{ .group.description | truncate 150 }}</p>
-                </div>
-            </div>
-        {{ end }}
-    {{ end }}  */}}
-</div>
+        <div class="youtube-feed">
+            {{/*  {{ with $feed.entry }}
+                {{ len . }}
+                {{ range . }}
+                    {{$thumbUrl := index .group.thumbnail "-url" }}
+                    {{$ytLink := index .link "-href" }}
+                    <div class="video-card">
+                        <h3>{{ .title }}</h3>
+                        <div class="video-thumbnail">
+                            <a href="{{ $ytLink }}" target="_blank">
+                                <img src="{{ $thumbUrl }}" alt="{{ .title }}">
+                            </a>
+                        </div>
+                        <div class="video-meta">
+                            <p class="published">Published: {{ dateFormat "Jan 2, 2006" .published }}</p>
+                            <p class="description">{{ .group.description | truncate 150 }}</p>
+                        </div>
+                    </div>
+                {{ end }}
+            {{ end }}  */}}
+        </div>
 
+        <pre>debug: {{ debug.Dump (len $feed) }}</pre>
+        {{/*  {{ partial "homepage/youtube-channel-info" (dict "channelData" $channelData "playlistsData" $playlistsData) }}  */}}
 
-
-<pre>debug: {{ debug.Dump (len $feed) }}</pre>
-{{/*  {{ partial "homepage/youtube-channel-info" (dict "channelData" $channelData "playlistsData" $playlistsData) }}  */}}
-
-<pre>playlists length: {{ debug.Dump (len $playlistsData) }}</pre>
-{{/*  {{ warnf "Fetched YouTube feed from %s" $feed }}  */}}
-
+        <pre>playlists length: {{ debug.Dump (len $playlistsData) }}</pre>
+        {{/*  {{ warnf "Fetched YouTube feed from %s" $feed }}  */}}
+    </div>
+</section>
 
 {{/*  # assets/scss/youtube.scss  */}}
 <style>
