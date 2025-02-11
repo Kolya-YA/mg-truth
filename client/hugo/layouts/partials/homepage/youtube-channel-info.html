@@ -14,4 +14,4 @@
 <p>{{ $brand.description }}</p>
 {{/*  <img src="{{ $brandImg.RelPermalink }}" alt="" width={{ $brandImg.Width }} height={{ $brandImg.Height }}>  */}}
 <img src="{{ $channelLogo.RelPermalink }}" alt="channel logo" width={{ $channelLogo.Width }} height={{ $channelLogo.Height }}>
-<p>Количество подписчиков: {{ substr $stat.subscriberCount 0 -3 }} тыс., всего видео: {{ $stat.videoCount }}, всего просмотров: {{ $stat.viewCount }}</p>
+<p>Подписчиков: {{ (substr $stat.subscriberCount 0 -3) | lang.FormatNumber 0 }} тыс., всего видео: {{ $stat.videoCount }} шт., всего просмотров: {{ $stat.viewCount | lang.FormatNumber 0 }} раз.</p>

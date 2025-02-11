@@ -1,0 +1,62 @@
+:root, ::backdrop {
+    /* Colors */
+    --accent-hue: 101; // 101
+    --accent-sat: 0%; //58%
+    
+    --bg-hue: 94; // 94
+    --bg-light-sat: 0%; // 73%
+    --bg-dark-sat: 0%; // 11%
+
+    --link-hue: 240; // 240
+    --link-sat: 0%; // 33%
+
+    --light-text-color: hsl(0 0% 98%);
+    --dark-text-color: hsl(0 0% 20%);
+
+    --accent-color-night: hsl(var(--accent-hue) var(--accent-sat) 16%);
+    --accent-color-dark: hsl(var(--accent-hue) var(--accent-sat) 26%);
+    --accent-color: hsl(var(--accent-hue) var(--accent-sat) 46%);
+    --accent-color-light: hsl(var(--accent-hue) var(--accent-sat) 66%);
+    
+    --warning-color: hsl(348 56% 47%);
+    
+    --dark-bg-color-dark: hsl(var(--bg-hue) var(--bg-dark-sat) 6%);
+    --dark-bg-color: hsl(var(--bg-hue) var(--bg-dark-sat) 26%);
+    --dark-bg-color-light: hsl(var(--bg-hue) var(--bg-dark-sat) 46%);
+    
+    --light-bg-color-dark: hsl(var(--bg-hue) var(--bg-light-sat) 78%);
+    --light-bg-color: hsl(var(--bg-hue) var(--bg-light-sat), 97%);
+    --light-bg-color-light: hsl(var(--bg-hue) var(--bg-light-sat) 100%);
+
+    --link-color-dark: hsl(var(--link-hue) var(--link-sat) 50%);
+    --link-color: hsl(var(--link-hue) var(--link-sat) 70%);
+    --link-color-light: hsl(var(--link-hue) var(--link-sat) 90%);
+
+    --dark-bg-gradient: radial-gradient(
+        farthest-corner circle at 9% 73%, hsl(var(--bg-hue) var(--bg-dark-sat) 26%) 5% 5%, 89%, hsl(var(--bg-hue) var(--bg-dark-sat) 46%) 100%
+    );
+    
+    --box-shadow:
+        0 1px 2px hsl(var(--bg-hue) var(--bg-dark-sat) 25% / 30%),
+        0 1px 3px hsl(var(--bg-hue) var(--bg-dark-sat) 25% / 15%);
+
+    --border-radius: 0.2rem;
+
+    // --ff-main: "Exo", Arial, Helvetica, sans-serif;
+    --ff-main: system-ui;
+    --ff-accent: system-ui;
+    --ff-mono: monospace;
+    
+    /* font-sizes */
+    --fs-300: clamp(0.94rem, calc(0.92rem + 0.08vw), 0.98rem);
+    --fs-400: clamp(1.13rem, calc(1.06rem + 0.33vw), 1.31rem);
+    --fs-500: clamp(1.35rem, calc(1.21rem + 0.69vw), 1.75rem);
+    --fs-600: clamp(1.62rem, calc(1.37rem + 1.24vw), 2.33rem);
+    --fs-700: clamp(1.94rem, calc(1.54rem + 2.03vw), 3.11rem);
+    --fs-800: clamp(2.33rem, calc(1.7rem + 3.15vw), 4.14rem);
+    --fs-900: clamp(2.8rem, calc(1.85rem + 4.74vw), 5.52rem);
+
+    /* paddings, margins, gaps */
+    --main-gap: clamp(.7rem, calc(.5rem + 1vw), 1rem);
+    --block-gap: calc(var(--main-gap) * 2)
+}
