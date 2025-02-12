@@ -1,6 +1,6 @@
-{{- $apiURL := .Site.Params.youtube.feedURL }}
-{{- $channelId := .Site.Params.youtube.channelId }}
-{{- $playlistsIds := delimit .Site.Params.youtube.playListsIds "," }}
+{{- $apiURL := site.Params.youtube.feedURL }}
+{{- $channelId := site.Params.youtube.channelId }}
+{{- $playlistsIds := delimit site.Params.youtube.playListsIds "," }}
 
 {{ $feedURL := printf "%s?channelId=%s" $apiURL $channelId }}
 {{ $feedURL = printf "%s&playListsIds=%s" $feedURL $playlistsIds }}
@@ -10,13 +10,14 @@
 
 {{ with try (resources.GetRemote $feedURL) }}
     {{ with .Err }}
-        {{ errorf "%s" . }}
+        {{ warnf "Remote req error %s" . }}
     {{ else with .Value}}
         {{ $feed = . | transform.Unmarshal }}
     {{ end }}
 {{ else }}
     {{ errorf "Failed to fetch YouTube feed from %s" $feedURL }}
 {{ end }}
+
 
 {{ return $feed }}
 

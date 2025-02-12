@@ -1,5 +1,8 @@
 {{ $feed := partial "func/youtube-feed-fetcher.html" . }}
-{{ $channelData := index (where $feed "kind" "youtube#channelListResponse") 0 }}
+{{ $channelData := "" }}
+{{ $playlistsData := "" }}
+
+{{ $channelData := where $feed "kind" "youtube#channelListResponse" }}
 {{ $playlistsData := where $feed "kind" "youtube#playlistItemListResponse" }}
 
 <section class="shop shop-home">
@@ -28,10 +31,12 @@
             {{ end }}  */}}
         </div>
 
-        <pre>debug: {{ debug.Dump (len $feed) }}</pre>
+        {{/*  <pre>debug: {{ debug.Dump (len $feed) }}</pre>  */}}
+        {{/*  <pre>debug: {{ debug.Dump ($feed) }}</pre>  */}}
+        {{/*  <pre>kind: {{ debug.Dump (where $feed "kind" "youtube#channelListResponse") }}</pre>  */}}
         {{/*  {{ partial "homepage/youtube-channel-info" (dict "channelData" $channelData "playlistsData" $playlistsData) }}  */}}
 
-        <pre>playlists length: {{ debug.Dump (len $playlistsData) }}</pre>
+        {{/*  <pre>playlists: {{ debug.Dump $playlistsData }}</pre>  */}}
         {{/*  {{ warnf "Fetched YouTube feed from %s" $feed }}  */}}
     </div>
 </section>

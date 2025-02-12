@@ -1,17 +1,24 @@
-{{ $info := index .items 0 }}
-{{ $brand := $info.brandingSettings.channel }}
-{{ $brandImg := $info.brandingSettings.image.bannerExternalUrl }}
-{{ $stat := $info.statistics }}
-{{ $brandImg = partial "common/get-remote-img" $brandImg }}
-{{ $channelLogo := $info.snippet.thumbnails.default.url }}
-{{ $channelLogo = partial "common/get-remote-img" $channelLogo }}
-
-{{/*  <pre>Channel: {{ debug.Dump  . }}</pre>  */}}
-{{/*  <pre>Channel info: {{ debug.Dump $info }}</pre>  */}}
-{{/*  <pre>Channel length: {{ debug.Dump (len .) }}</pre>  */}}
-
-<h2>YouTube канал {{ $brand.title }}</h2>
-<p>{{ $brand.description }}</p>
-{{/*  <img src="{{ $brandImg.RelPermalink }}" alt="" width={{ $brandImg.Width }} height={{ $brandImg.Height }}>  */}}
-<img src="{{ $channelLogo.RelPermalink }}" alt="channel logo" width={{ $channelLogo.Width }} height={{ $channelLogo.Height }}>
-<p>Подписчиков: {{ (substr $stat.subscriberCount 0 -3) | lang.FormatNumber 0 }} тыс., всего видео: {{ $stat.videoCount }} шт., всего просмотров: {{ $stat.viewCount | lang.FormatNumber 0 }} раз.</p>
+<div class="youtube-info">
+    {{ with . }}
+        {{ $data := index . 0 }}
+        {{ $info := index $data.items 0 }}
+        {{ $brand := $info.brandingSettings.channel }}
+        {{ $brandImg := $info.brandingSettings.image.bannerExternalUrl }}
+        {{ $stat := $info.statistics }}
+        {{ $brandImg = partial "common/get-remote-img" $brandImg }}
+        {{ $channelLogo := $info.snippet.thumbnails.default.url }}
+        {{ $channelLogo = partial "common/get-remote-img" $channelLogo }}
+        
+        {{/*  <pre>Channel info: {{ debug.Dump $info }}</pre>  */}}
+        {{/*  <pre>Channel length: {{ debug.Dump (len .) }}</pre>  */}}
+        
+        <h2>YouTube канал {{ $brand.title }}</h2>
+        <p>{{ $brand.description }}</p>
+        <img src="{{ $brandImg.RelPermalink }}" alt="" width={{ $brandImg.Width }} height={{ $brandImg.Height }}>
+        <img src="{{ $channelLogo.RelPermalink }}" alt="channel logo" width={{ $channelLogo.Width }} height={{ $channelLogo.Height }}>
+        <p>Подписчиков: {{ (substr $stat.subscriberCount 0 -3) | lang.FormatNumber 0 }} тыс., всего видео: {{ $stat.videoCount }} шт., всего просмотров: {{ $stat.viewCount | lang.FormatNumber 0 }} раз.</p>
+        <pre>Channel: {{ debug.Dump  . }}</pre>
+    {{ else}}
+        <h2>YouTube info ERROR</h2>
+    {{ end }}
+</div>
