@@ -1,0 +1,29 @@
+{
+  "name": "mg-truth",
+  "version": "1.0.0",
+  "workspaces": [
+    "client/hugo",
+    "client/vue-shop",
+    "workers/yt-api-proxy"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w workers/yt-api-proxy\" \"npm run dev -w client/vue-shop\" \"cd client/hugo && hugo server -D\"",
+    "dev-no-shop": "concurrently \"npm run dev -w workers/yt-api-proxy\" \"cd client/hugo && hugo server -D\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kolya-YA/mg-truth.git"
+  },
+  "keywords": [],
+  "author": "Nikolay _YA",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kolya-YA/mg-truth/issues"
+  },
+  "homepage": "https://github.com/Kolya-YA/mg-truth#readme",
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
