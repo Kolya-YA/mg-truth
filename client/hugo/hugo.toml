@@ -14,6 +14,7 @@ ignoreFiles = ['/book-shop']
         playListsIds = [
             "PLnPDytUjzMjorEFqrGw5xZmf_WEfip1WP", # Ганапольская правда
             "PLnPDytUjzMjqVgdw4DZkWlphQaWpTFBU6", # В рабочий полдень
+            "PLnPDytUjzMjoitAJlTHBEvAIVoV3iQUU-", # Ганапольское радио
         ]
         max_videos = 50  # Max qty of videos to show
 

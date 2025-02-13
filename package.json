@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "concurrently \"npm run dev -w workers/yt-api-proxy\" \"npm run dev -w client/vue-shop\" \"cd client/hugo && hugo server -D\"",
     "dev-no-shop": "concurrently \"npm run dev -w workers/yt-api-proxy\" \"cd client/hugo && hugo server -D\"",
+    "dev-no-cache": "concurrently \"npm run dev -w workers/yt-api-proxy\" \"sleep 5 && cd client/hugo && hugo server -D --ignoreCache\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
