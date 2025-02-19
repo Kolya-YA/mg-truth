@@ -5,10 +5,22 @@
     {{ block "header" . }}
         {{ partial "header/header" . }}
     {{ end }}
-    <main id="main-content" class="main">
-        {{ block "main" . }}{{ end }}
-    </main>
-    {{ block "aside" . }}{{ end }}
+    <div class="content-section">
+        <main id="main-content" class="main">
+            {{ block "main" . }}{{ end }}
+        </main>
+        {{ block "aside" . }}
+            <aside>
+                <div class="width-wrapper">
+                    <article class="content content--index">
+                        <h1>{{ .Title }}</h1>
+                        {{ .Content }}
+                    </article>
+                </div>
+                {{ partial "homepage/blog" . }}
+            </aside>
+        {{ end }}
+    </div>
     {{ block "footer" . }}
         {{ partial "footer/footer" . }}
     {{ end }}

@@ -6,7 +6,10 @@ disableKinds = ["taxonomy", "term", ]
 ignoreFiles = ['/book-shop']
 [params]
     logoName = "MatGun Truth"
-    heroTitle = "MG Truth Site"
+    heroTitle = [
+        "Информационные и развлекательные проекты",
+        "Матвея Ганопольского"
+        ]
 
     [params.youtube]
         feedURL = "http://localhost:8787/"
@@ -14,7 +17,7 @@ ignoreFiles = ['/book-shop']
         playListsIds = [
             "PLnPDytUjzMjorEFqrGw5xZmf_WEfip1WP", # Ганапольская правда
             "PLnPDytUjzMjqVgdw4DZkWlphQaWpTFBU6", # В рабочий полдень
-            "PLnPDytUjzMjoitAJlTHBEvAIVoV3iQUU-", # Ганапольское радио
+            # "PLnPDytUjzMjoitAJlTHBEvAIVoV3iQUU-", # Ганапольское радио
         ]
         max_videos = 50  # Max qty of videos to show
 
