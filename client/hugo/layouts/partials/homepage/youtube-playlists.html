@@ -1,12 +1,12 @@
 <div class="youtube-feed">
     <h2>Регулярные передачи</h2>
     {{/*  <pre>Playlists: {{ debug.Dump  (index . 0) }}</pre>  */}}
-    {{ range . }}
-    
-    <h3>Название плейлиста </h3>
-    <p>Всего передач: {{ .pageInfo.totalResults }}</p>
+    {{ range $index, $list := . }}
+    {{ $playListParam := index site.Params.youtube.playLists $index}}    
+    <h3>{{ $playListParam.name }}</h3>
+    <p>{{ $list.pageInfo.totalResults }} выпуска</p>
     <ul>
-        {{ range .items }}
+        {{ range $list.items }}
             {{ partial "homepage/youtube-playlist-item" . }}
         {{ end }}
     </ul>

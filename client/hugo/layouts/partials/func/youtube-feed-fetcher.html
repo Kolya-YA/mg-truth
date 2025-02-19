@@ -1,6 +1,10 @@
 {{- $apiURL := site.Params.youtube.feedURL }}
 {{- $channelId := site.Params.youtube.channelId }}
-{{- $playlistsIds := delimit site.Params.youtube.playListsIds "," }}
+{{- $ids := slice }}
+{{- range site.Params.youtube.playLists }}
+    {{- $ids = $ids | append .id }}
+{{- end }}
+{{- $playlistsIds := delimit $ids "," }}
 
 {{ $feedURL := printf "%s?channelId=%s" $apiURL $channelId }}
 {{ $feedURL = printf "%s&playListsIds=%s" $feedURL $playlistsIds }}
