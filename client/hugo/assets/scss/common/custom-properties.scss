@@ -9,10 +9,10 @@
 
     --warning-color: hsl(348 56% 47%);        
 
-    --accent-color: hsl(101 50% 46%);
+    --accent-color: hsl(207, 35%, 53%);
     --accent-color-night: hsl(from var(--accent-color) h s 16%);
     --accent-color-dark: hsl(from var(--accent-color) h s 26%);
-    --accent-color-light: hsl(from var(--accent-color) h s 66%);
+    --accent-color-light: hsl(from var(--accent-color) h s 82%);
 
     --dark-bg-color: hsl(94 0% 26%);
     --dark-bg-color-dark: hsl(from var(--dark-bg-color) h s 6%);
@@ -28,8 +28,8 @@
 
     --dark-bg-gradient: radial-gradient(
         farthest-corner circle at 9% 73%,
-        hsl(var(--bg-hue) var(--bg-dark-sat) 26%) 5% 5%, 89%,
-        hsl(var(--bg-hue) var(--bg-dark-sat) 46%) 100%
+        hsl(from var(--accent-color-night) h s 56%) 4% 4%, 36%,
+        hsl(from var(--accent-color-night) h s 36%) 100%
     );
     
     --box-shadow:

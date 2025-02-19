@@ -3,13 +3,15 @@
 {{ $playlistsData := "" }}
 
 {{ $channelData := where $feed "kind" "youtube#channelListResponse" }}
-{{ $playlistsData := where $feed "kind" "youtube#playlistItemListResponse" }}
 
-<section class="shop shop-home">
-    <div class="width-wrapper">
-        {{ partial "homepage/youtube-channel-info" $channelData }}
-        {{ partial "homepage/youtube-playlists" $playlistsData }}
-
+    {{ $playlistsData := where $feed "kind" "youtube#playlistItemListResponse" }}
+    
+    <section class="youtube-homepage">
+        <div class="width-wrapper">
+            <div class="youtube-homepage__block">
+                {{ partial "homepage/youtube-channel-info" $channelData }}
+                {{ partial "homepage/youtube-playlists" $playlistsData }}
+            </div>
         {{/*  <pre>debug: {{ debug.Dump (len $feed) }}</pre>  */}}
         {{/*  <pre>debug: {{ debug.Dump ($feed) }}</pre>  */}}
         {{/*  <pre>kind: {{ debug.Dump (where $feed "kind" "youtube#channelListResponse") }}</pre>  */}}

@@ -1,0 +1,15 @@
+.hero {
+    padding-block: var(--main-gap);
+    background: var(--dark-bg-gradient);
+
+    .hero__content-title {
+        margin-inline-start: auto;
+        max-width: 32ch;
+        color: var(--dark-text-color);
+        text-align: end;
+        text-wrap: balance;
+        font-size: var(--fs-700);
+        color: var(--accent-color-light) ;
+
+    }
+}

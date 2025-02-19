@@ -1,0 +1,13 @@
+.youtube-homepage {
+    padding-block: var(--main-gap);
+    background: var(--light-bg-color-dark);
+    
+    .youtube-homepage__block {
+        display: grid;
+        gap: var(--main-gap);
+
+        @media (width > 90ch) {
+            grid-template-columns: 1fr 2fr;
+        }
+    }
+}
