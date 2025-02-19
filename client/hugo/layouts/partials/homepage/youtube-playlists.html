@@ -7,15 +7,7 @@
     <p>Всего передач: {{ .pageInfo.totalResults }}</p>
     <ul>
         {{ range .items }}
-            {{ $pubDate := time.Format "02.01.2006" (time .contentDetails.videoPublishedAt) }}
-            {{ $thumb := .snippet.thumbnails.medium.url }}
-            {{ $thumb = partial "common/get-remote-img" $thumb }}
-            <li data-videoid="{{ .contentDetails.videoId }}">
-                <h4>{{ .snippet.title }}</h4>
-                <img src="{{ $thumb.RelPermalink }}" alt="{{ .snippet.title }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" loading="lazy">
-                <p>{{ $pubDate }}</p>
-                {{/*  <p>{{ .snippet.description | truncate 150 }}</p>  */}}
-            </li>
+            {{ partial "homepage/youtube-playlist-item" . }}
         {{ end }}
     </ul>
     {{/*  <pre>Snippet0: {{ debug.Dump  ( (index .items 0) ) }}</pre>  */}}
