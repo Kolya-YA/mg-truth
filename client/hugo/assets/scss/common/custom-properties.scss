@@ -18,7 +18,7 @@
     --dark-bg-color-dark: hsl(from var(--dark-bg-color) h s 6%);
     --dark-bg-color-light: hsl(from var(--dark-bg-color) h s 46%);
     
-    --light-bg-color: hsl(94 0% 97%);
+    --light-bg-color: hsl(94 0% 88%);
     --light-bg-color-dark: hsl(from var(--light-bg-color) h s 78%);
     --light-bg-color-light: hsl(from var(--light-bg-color) h s 100%);
 
@@ -27,9 +27,9 @@
     --link-color-light: hsl(from var(--link-color) h s 90%);
 
     --dark-bg-gradient: radial-gradient(
-        farthest-corner circle at 9% 73%,
-        hsl(from var(--accent-color-night) h s 56%) 4% 4%, 36%,
-        hsl(from var(--accent-color-night) h s 36%) 100%
+        farthest-corner circle at 6% 83%,
+        hsl(from var(--accent-color-night) h s 56%) 1% 1%, 28%,
+        hsl(from var(--accent-color-night) h s 32%) 100%
     );
     
     --box-shadow:

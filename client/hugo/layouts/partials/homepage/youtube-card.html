@@ -1,0 +1,16 @@
+{{ if .contentDetails.videoPublishedAt }}
+{{ $title := index (split .snippet.title "/") 0 | strings.TrimSpace }}
+{{ $pubDate := time.Format "02.01.2006" (time .contentDetails.videoPublishedAt) }}
+{{ $thumb := .snippet.thumbnails.medium.url }}
+{{ $thumb := .snippet.thumbnails.medium.url }}
+{{ $thumb = partial "common/get-remote-img" $thumb }}
+<li class="youtube-card" data-videoid="{{ .contentDetails.videoId }}">
+    <h4 class="youtube-card__title">{{ $title }}</h4>
+    <img class="youtube-card__image" src="{{ $thumb.RelPermalink }}" alt="{{ .snippet.title }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" loading="lazy">
+    <div class="youtube-card__description">
+        <p>{{ $pubDate }}</p>
+        {{/* <p>{{ .snippet.description | truncate 150 }}</p> */}}
+        {{/*  {{ debug.Dump . }}  */}}
+    </div>
+</li>
+{{ end }}

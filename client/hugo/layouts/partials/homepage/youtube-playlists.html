@@ -1,15 +1,22 @@
-<div class="youtube-feed">
+<div class="youtube-homepage__playlists">
     <h2>Регулярные передачи</h2>
-    {{/*  <pre>Playlists: {{ debug.Dump  (index . 0) }}</pre>  */}}
-    {{ range $index, $list := . }}
-    {{ $playListParam := index site.Params.youtube.playLists $index}}    
-    <h3>{{ $playListParam.name }}</h3>
-    <p>{{ $list.pageInfo.totalResults }} выпуска</p>
-    <ul>
-        {{ range $list.items }}
-            {{ partial "homepage/youtube-playlist-item" . }}
+    {{/*
+    <pre>Playlists: {{ debug.Dump  (index . 0) }}</pre> */}}
+    <div class="youtube-homepage__playlists-grid">
+        {{ $sortedLists := sort . "pageInfo.totalResults" "desc" }}
+        {{ range $index, $list := $sortedLists }}
+        <div class="youtube-homepage__playlist-block">
+            {{ $playListParam := index site.Params.youtube.playLists $index}}
+            <div class="youtube-homepage__playlist-header">
+                <h3>{{ $playListParam.name }}</h3>
+                <p>{{ $list.pageInfo.totalResults }} выпуска</p>
+            </div>
+            <ul class="youtube-homepage__playlist-list">
+                {{ range $list.items }}
+                {{ partial "homepage/youtube-card" . }}
+                {{ end }}
+            </ul>
+        </div>
         {{ end }}
-    </ul>
-    {{/*  <pre>Snippet0: {{ debug.Dump  ( (index .items 0) ) }}</pre>  */}}
-    {{ end }}
+    </div>
 </div>

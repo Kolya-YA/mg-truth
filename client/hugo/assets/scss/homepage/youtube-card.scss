@@ -1,0 +1,40 @@
+.youtube-card {
+    background-color: var(--light-bg-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    display: grid;
+    gap: calc(var(--main-gap) / 2);
+    grid-template-areas:
+        "title"
+        "image"
+        "description";
+
+    @container (width > 28ch) {
+        grid-template-columns: minmax(180px, 1fr) 2fr;
+        grid-template-areas:
+            "image title"
+            "image description";
+    }
+    // padding-block: calc(var(--main-gap)5/ 4);
+    // padding-inline: calc(var(--main-gap) / 2);
+
+    .youtube-card__title {
+        grid-area: title;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        hyphens: auto;
+        line-height: 1.2;
+    }
+
+    .youtube-card__image {
+        grid-area: image;
+        align-self: center;
+    }
+
+    .youtube-card__description {
+        grid-area: description;
+        align-self: end;
+        text-align: end;
+        font-size: var(--fs-300);
+    }
+}
