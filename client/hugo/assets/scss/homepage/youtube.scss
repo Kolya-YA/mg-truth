@@ -11,35 +11,15 @@
         }
     }
 
-    .youtube-homepage__playlists {
+    .youtube-homepage__videos {
 
-        
-        .youtube-homepage__playlists-grid {
+        .youtube-homepage__videos-list {
             display: grid;
-            gap: var(--main-gap);
             grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
-            align-items: start;
-
-            .youtube-homepage__playlist-block {
-                display: grid;
-                gap: var(--main-gap);
-            }
-            
-            .youtube-homepage__playlist-header {
-                padding-block: calc(var(--main-gap)5/ 4);
-                padding-inline: calc(var(--main-gap) / 2);
-                background-color: var(--light-bg-color);
-                border-radius: var(--border-radius);
-                text-align: end;    
-            }
-
-            .youtube-homepage__playlist-list {
-                display: grid;
-                gap: var(--main-gap);
-                list-style: none;
-                padding-inline: 0;
-                container-type: inline-size;
-            }
+            gap: var(--main-gap);
+            list-style: none;
+            padding-inline: 0;
+            container-type: inline-size;            
         }
     }
 }

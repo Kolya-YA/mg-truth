@@ -1,16 +1,12 @@
 {{- $apiURL := site.Params.youtube.feedURL }}
-{{- $channelId := site.Params.youtube.channelId }}
-{{- $ids := slice }}
-{{- range site.Params.youtube.playLists }}
-    {{- $ids = $ids | append .id }}
-{{- end }}
-{{- $playlistsIds := delimit $ids "," }}
+{{- $maxResults := site.Params.youtube.maxResults }}
 
-{{ $feedURL := printf "%s?channelId=%s" $apiURL $channelId }}
-{{ $feedURL = printf "%s&playListsIds=%s" $feedURL $playlistsIds }}
+{{ $feedURL := $apiURL }}
+{{ with $maxResults }}
+    {{ $feedURL = printf "%s?maxResults=%d" $feedURL . }}
+{{ end }}
 {{ $feed := dict }}
 {{ warnf "Fetching YouTube data from %s" $feedURL }}
-
 
 {{ with try (resources.GetRemote $feedURL) }}
     {{ with .Err }}
@@ -21,7 +17,8 @@
 {{ else }}
     {{ errorf "Failed to fetch YouTube feed from %s" $feedURL }}
 {{ end }}
-
 {{ return $feed }}
 
-{{/*  http://localhost:8787/?channelId=UCA_2oV10_uipWBWlyfJj16w&playListsIds=PLnPDytUjzMjorEFqrGw5xZmf_WEfip1WP,PLnPDytUjzMjqVgdw4DZkWlphQaWpTFBU6  */}}
+{{/*
+http://localhost:8787/?channelId=UCA_2oV10_uipWBWlyfJj16w&playListsIds=PLnPDytUjzMjorEFqrGw5xZmf_WEfip1WP,PLnPDytUjzMjqVgdw4DZkWlphQaWpTFBU6
+*/}}

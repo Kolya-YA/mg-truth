@@ -1,0 +1,9 @@
+<div class="youtube-homepage__videos">
+    <h2>Последние выпуски</h2>
+    <ul class="youtube-homepage__videos-list">
+        {{ range . }}
+            {{ partial "homepage/youtube-card" . }}
+        {{ end }}
+    </ul>
+</div>
+{{/*  <pre>Card: {{ debug.Dump  . }}</pre>  */}}

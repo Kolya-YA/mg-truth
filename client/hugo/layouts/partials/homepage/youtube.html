@@ -1,76 +1,20 @@
 {{ $feed := partial "func/youtube-feed-fetcher.html" . }}
+{{/*  <pre>debug: {{ debug.Dump ($feed) }}</pre>  */}}
 {{ $channelData := "" }}
 {{ $playlistsData := "" }}
 
-{{ $channelData := where $feed "kind" "youtube#channelListResponse" }}
-
-    {{ $playlistsData := where $feed "kind" "youtube#playlistItemListResponse" }}
-    
-    <section class="youtube-homepage">
-        <div class="width-wrapper">
-            <div class="youtube-homepage__block">
-                {{ partial "homepage/youtube-channel-info" $channelData }}
-                {{ partial "homepage/youtube-playlists" $playlistsData }}
-            </div>
-        {{/*  <pre>debug: {{ debug.Dump (len $feed) }}</pre>  */}}
-        {{/*  <pre>debug: {{ debug.Dump ($feed) }}</pre>  */}}
-        {{/*  <pre>kind: {{ debug.Dump (where $feed "kind" "youtube#channelListResponse") }}</pre>  */}}
-        {{/*  {{ partial "homepage/youtube-channel-info" (dict "channelData" $channelData "playlistsData" $playlistsData) }}  */}}
-        {{/*  <pre>playlists: {{ debug.Dump $playlistsData }}</pre>  */}}
-        {{/*  {{ warnf "Fetched YouTube feed from %s" $feed }}  */}}
+<section class="youtube-homepage">
+    <div class="width-wrapper">
+        <div class="youtube-homepage__block">
+            {{ partial "homepage/youtube-channel-info" $feed.channel }}
+            {{ partial "homepage/youtube-videos" $feed.videos }}
+        </div>
     </div>
 </section>
 
-{{/*  # assets/scss/youtube.scss  */}}
-<style>
-    {{/*  .youtube-feed {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        padding: 1rem;
-
-        .video-card {
-            border: 1px solid #eee;
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.2s;
-
-            &:hover {
-                transform: translateY(-5px);
-            }
-
-            h3 {
-                padding: 1rem;
-                margin: 0;
-                font-size: 1.2rem;
-            }
-
-            .video-thumbnail {
-                aspect-ratio: 16 / 9;
-
-                img {
-                    width: 100%;
-                    height: 100%;
-                    object-fit: cover;
-                }
-            }
-
-            .video-meta {
-                padding: 1rem;
-
-                .published {
-                    margin: 0;
-                    color: #666;
-                    font-size: 0.9rem;
-                }
-
-                .description {
-                    margin: 0;
-                    margin-top: 0.5rem;
-                    font-size: 0.95rem;
-                    line-height: 1.5;
-                }
-            }
-        }
-    }  */}}
-</style>
+{{/*  <pre>debug: {{ debug.Dump (len $feed) }}</pre>  */}}
+{{/*  <pre>debug: {{ debug.Dump ($feed) }}</pre>  */}}
+{{/*  <pre>kind: {{ debug.Dump (where $feed "kind" "youtube#channelListResponse") }}</pre>  */}}
+{{/*  {{ partial "homepage/youtube-channel-info" (dict "channelData" $channelData "playlistsData" $playlistsData) }}  */}}
+{{/*  <pre>playlists: {{ debug.Dump $playlistsData }}</pre>  */}}
+{{/*  {{ warnf "Fetched YouTube feed from %s" $feed }}  */}}

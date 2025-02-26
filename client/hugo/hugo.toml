@@ -1,5 +1,5 @@
 baseURL = 'https://example.org/'
-languageCode = 'en-us'
+languageCode = 'ru'
 title = 'MG truth'
 
 disableKinds = ["taxonomy", "term", ]
@@ -14,6 +14,7 @@ ignoreFiles = ['/book-shop']
     [params.youtube]
         feedURL = "http://localhost:8787/"
         channelId = "UCA_2oV10_uipWBWlyfJj16w"  # channel ID
+        maxResults = 8
         [[params.youtube.playLists]]
             name = "Ганапольская правда"
             id = "PLnPDytUjzMjorEFqrGw5xZmf_WEfip1WP"
