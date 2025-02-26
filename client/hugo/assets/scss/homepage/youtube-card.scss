@@ -29,6 +29,7 @@
     .youtube-card__image {
         grid-area: image;
         align-self: center;
+        aspect-ratio: 16 / 9;
     }
 
     .youtube-card__description {
