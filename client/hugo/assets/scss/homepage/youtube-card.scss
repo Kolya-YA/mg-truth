@@ -3,41 +3,57 @@
     border-radius: var(--border-radius);
     overflow: hidden;
     display: grid;
-    gap: calc(var(--main-gap) / 2);
+    inline-gap: calc(var(--main-gap) / 2);
     grid-template-areas:
         "title"
         "image"
-        "description";
+        "info";
 
-    @container (width > 28ch) {
-        grid-template-columns: minmax(180px, 1fr) 2fr;
+    @container youtube-videos (width > 32ch) {
+        grid-template-columns: 3fr 4fr;
         grid-template-areas:
-            "image description"
+            "image info"
             "title title"
         ;
     }
     // padding-block: calc(var(--main-gap)5/ 4);
     // padding-inline: calc(var(--main-gap) / 2);
 
-    .youtube-card__title {
+    .title {
         grid-area: title;
+        padding: .3em .5em .2em;
+        color: var(--accent-color-light);
+        background: var(--dark-bg-gradient);
         overflow-wrap: break-word;
         word-break: break-word;
         hyphens: auto;
         line-height: 1.2;
     }
 
-    .youtube-card__image {
+    .image {
         grid-area: image;
         align-self: center;
         aspect-ratio: 16 / 9;
     }
 
-    .youtube-card__description {
-        grid-area: description;
-        align-self: end;
-        text-align: end;
+    .info {
+        padding: .3em .5em .2em;
+        grid-area: info;
+        display: grid;
+        grid-template-rows: min-content;
+        align-content: space-between;
         font-size: var(--fs-300);
-        hyphens: auto;
+        line-height: 1.2;
+        text-align: end;
+        
+        .date {
+            font-weight: 600;
+        }
+        
+        .type {
+            font-size: var(--fs-200);
+            hyphens: auto;
+            text-wrap: balance;
+        }
     }
 }

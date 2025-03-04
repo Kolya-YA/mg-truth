@@ -1,22 +1,32 @@
-<div class="youtube-info">
+{{/*  <pre>Channel: {{ debug.Dump $info }}</pre>  */}}
+<section class="youtube-info">
     {{ with . }}
         {{ $stat := .statistics }}
         {{ $channelLogo := .thumbnails.medium.url }}
         {{ $channelLogo = partial "common/get-remote-img" $channelLogo }}
-        {{/*  <pre>Channel: {{ debug.Dump $info }}</pre>  */}}
         
-        <h2>{{ .title }}</h2>
         <p>{{ .description }}</p>
-        {{/*  <img src="{{ $brandImg.RelPermalink }}" alt="" width={{ $brandImg.Width }} height={{ $brandImg.Height }}>  */}}
-        <img src="{{ $channelLogo.RelPermalink }}" alt="channel logo" width={{ $channelLogo.Width }} height={{ $channelLogo.Height }}>
-        <ul>
-            <li>Подписчики: {{ (substr $stat.subscriberCount 0 -3) | lang.FormatNumber 0 }} тыс.</li>
-            <li>Видео: {{ $stat.videoCount }} шт.</li>
-            <li>Просмотров: {{ $stat.viewCount | lang.FormatNumber 0 }}</li>
+        <header>
+            <img src="{{ $channelLogo.RelPermalink }}" alt="channel logo" width={{ $channelLogo.Width }} height={{ $channelLogo.Height }}>
+            <h2>{{ .title }}</h2>
+        </header>
+        <ul class="youtube-info__stats">
+            <li>
+                <span>{{ (substr $stat.subscriberCount 0 -3) | lang.FormatNumber 0 }} тыс.</span>
+                подписчиков
+            </li>
+            <li>
+                <span>{{ $stat.videoCount }}</span>
+                видео
+            </li>
+            <li>
+                <span>{{ $stat.viewCount | lang.FormatNumber 0 }}</span>
+                просмотров
+            </li>
         </ul>
         {{ else}}
         <h2>YouTube info ERROR</h2>
     {{ end }}
-</div>
+</section>
 
 {{/*  <pre>Channel: {{ debug.Dump  . }}</pre>  */}}

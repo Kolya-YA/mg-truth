@@ -6,11 +6,11 @@
 {{ $thumb := .thumbnails.medium.url }}
 {{ $thumb = partial "common/get-remote-img" $thumb }}
 <li class="youtube-card" data-videoid="{{ .contentDetails.videoId }}">
-    <h4 class="youtube-card__title">{{ $name }}</h4>
-    <img class="youtube-card__image" src="{{ $thumb.RelPermalink }}" alt="{{ .title }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" loading="lazy">
-    <div class="youtube-card__description">
-        <p>{{ $type }}</p>
-        <p>{{ $pubDate }}</p>
+    <h4 class="title">{{ $name }}</h4>
+    <img class="image" src="{{ $thumb.RelPermalink }}" alt="{{ .title }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" loading="lazy">
+    <div class="info">
+        <p class="date">{{ $pubDate }}</p>
+        <p class="type">{{ $type }}</p>
         {{/* <p>{{ .snippet.description | truncate 150 }}</p> */}}
         
     </div>
