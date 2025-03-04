@@ -12,7 +12,8 @@ ignoreFiles = ['/book-shop']
         ]
 
     [params.youtube]
-        feedURL = "http://localhost:8787/"
+        # feedURL = "http://localhost:8787/"
+        feedURL = "https://yt-api-proxy.kolya-ya.workers.dev/"
         channelId = "UCA_2oV10_uipWBWlyfJj16w"  # channel ID
         maxResults = 8
         [[params.youtube.playLists]]
