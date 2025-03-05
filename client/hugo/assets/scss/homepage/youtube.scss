@@ -18,9 +18,7 @@
             grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
             gap: var(--main-gap);
             list-style: none;
-            padding-inline: 0;
-            container-type: inline-size;   
-            container-name: youtube-videos;         
+            padding-inline: 0;       
         }
     }
 }

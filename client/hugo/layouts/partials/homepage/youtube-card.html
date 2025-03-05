@@ -1,19 +1,13 @@
-{{ if eq .liveBroadcastContent "none" }}
-{{ $title := split .title "/" }}
-{{ $name := index $title 0 | strings.TrimSpace }}
-{{ $type := index $title 1 | strings.TrimSpace }}
-{{ $pubDate := time.Format "02.01.2006" (time .publishedAt) }}
-{{ $thumb := .thumbnails.medium.url }}
-{{ $thumb = partial "common/get-remote-img" $thumb }}
+
 <li class="youtube-card" data-videoid="{{ .contentDetails.videoId }}">
-    <h4 class="title">{{ $name }}</h4>
-    <img class="image" src="{{ $thumb.RelPermalink }}" alt="{{ .title }}" width="{{ $thumb.Width }}" height="{{ $thumb.Height }}" loading="lazy">
-    <div class="info">
-        <p class="date">{{ $pubDate }}</p>
-        <p class="type">{{ $type }}</p>
-        {{/* <p>{{ .snippet.description | truncate 150 }}</p> */}}
-        
-    </div>
+    <button class="button">
+        <h4 class="title">{{ .title }}</h4>
+        <img class="image" src="{{ .thumb.RelPermalink }}" alt="{{ .title }}" width="{{ .thumb.Width }}" height="{{ .thumb.Height }}" loading="lazy">
+        <div class="info">
+            <p class="date">{{ .pubDate }}</p>
+            <p class="type">{{ .type }}</p>
+        </div>
+        <p>{{ .snippet.description | truncate 150 }}</p>
+    </button>
     {{/*  <pre>Card: {{ debug.Dump  . }}</pre>  */}}
 </li>
-{{ end }}

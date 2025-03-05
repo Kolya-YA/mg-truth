@@ -1,9 +1,39 @@
+{{ $videos := slice }}
+{{/*  {{ $filtredFeed := where . "liveBroadcastContent" "none"}}  */}}
+{{ range first 10 (where . "liveBroadcastContent" "none") }}
+    {{ $title := split .title "/" }}
+    {{ $video := dict 
+        "title" (index $title 0 | strings.TrimSpace)
+        "type" (index $title 1 | strings.TrimSpace)
+        "pubDate" (time.Format "02.01.2006" (time .publishedAt))
+        "thumb" (partial "common/get-remote-img" .thumbnails.medium.url)
+    }}
+    {{ $videos = $videos | append $video }}
+    {{/*  <pre>Card: {{ debug.Dump  . }}</pre>  */}}
+{{ end }}
+    
 <div class="youtube-homepage__videos">
     <h2>Последние выпуски</h2>
     <ul class="youtube-homepage__videos-list">
-        {{ range . }}
+        {{ range $videos }}
             {{ partial "homepage/youtube-card" . }}
         {{ end }}
     </ul>
+
+    <dialog id="ytModal">
+        <button class="dialog-close" aria-label="Close video" title="Close">
+            ✕
+        </button>
+        <div class="video-container">
+            
+            {{/*  <iframe title="YouTube Video Player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen
+                    src=""
+                    >
+            </iframe>  */}}
+        </div>
+    </dialog>
 </div>
-{{/*  <pre>Card: {{ debug.Dump  . }}</pre>  */}}
+{{/*
+<pre>Card: {{ debug.Dump  . }}</pre> */}}

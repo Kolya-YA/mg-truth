@@ -17,7 +17,7 @@ ignoreFiles = ['/book-shop']
         # feedURL = "http://localhost:8787/"
         feedURL = "https://yt-api-proxy.kolya-ya.workers.dev/"
         channelId = "UCA_2oV10_uipWBWlyfJj16w"  # channel ID
-        maxResults = 8
+        maxResults = 13
         [[params.youtube.playLists]]
             name = "Ганапольская правда"
             id = "PLnPDytUjzMjorEFqrGw5xZmf_WEfip1WP"
