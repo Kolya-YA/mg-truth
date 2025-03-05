@@ -1,5 +1,3 @@
-console.log('youtube-dialog.js loaded');
-
 const youtubeTriggers = document.querySelectorAll('[data-video-id]');
 const youtubeDialog = document.getElementById('youtubeDialog')
 const youtubeIframe = youtubeDialog.querySelector('#youtubeIframe');

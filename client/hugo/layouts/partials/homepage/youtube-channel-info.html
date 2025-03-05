@@ -1,32 +1,38 @@
-{{/*  <pre>Channel: {{ debug.Dump $info }}</pre>  */}}
+{{/*
+<pre>Channel: {{ debug.Dump $info }}</pre> */}}
 <section class="youtube-info">
     {{ with . }}
-        {{ $stat := .statistics }}
-        {{ $channelLogo := .thumbnails.medium.url }}
-        {{ $channelLogo = partial "common/get-remote-img" $channelLogo }}
-        
-        <p>{{ .description }}</p>
-        <header>
-            <img src="{{ $channelLogo.RelPermalink }}" alt="channel logo" width={{ $channelLogo.Width }} height={{ $channelLogo.Height }}>
-            <h2>{{ .title }}</h2>
-        </header>
-        <ul class="youtube-info__stats">
-            <li>
-                <span>{{ (substr $stat.subscriberCount 0 -3) | lang.FormatNumber 0 }} тыс.</span>
-                подписчиков
-            </li>
-            <li>
-                <span>{{ $stat.videoCount }}</span>
-                видео
-            </li>
-            <li>
-                <span>{{ $stat.viewCount | lang.FormatNumber 0 }}</span>
-                просмотров
-            </li>
-        </ul>
-        {{ else}}
-        <h2>YouTube info ERROR</h2>
+    {{ $stat := .statistics }}
+    {{ $channelLogo := .thumbnails.medium.url }}
+    {{ $channelLogo = partial "common/get-remote-img" $channelLogo }}
+
+    <p>{{ .description }}</p>
+    <header>
+        <img src="{{ $channelLogo.RelPermalink }}" alt="channel logo" width={{ $channelLogo.Width }} height={{
+             $channelLogo.Height }}>
+        <h2>{{ .title }}</h2>
+    </header>
+    <ul class="youtube-info__stats">
+        <li>
+            <span>{{ (substr $stat.subscriberCount 0 -3) | lang.FormatNumber 0 }} тыс.</span>
+            подписчиков
+        </li>
+        <li>
+            <span>{{ $stat.videoCount }}</span>
+            видео
+        </li>
+        <li>
+            <span>{{ $stat.viewCount | lang.FormatNumber 0 }}</span>
+            просмотров
+        </li>
+    </ul>
+    {{ else}}
+    <h2>YouTube info ERROR</h2>
     {{ end }}
+    <a class="youtube-info__link" href="https://www.youtube.com/@Ganapolsky" target="_blank" rel="noopener">
+        Открыть YouTube
+    </a>
 </section>
 
-{{/*  <pre>Channel: {{ debug.Dump  . }}</pre>  */}}
+{{/*
+<pre>Channel: {{ debug.Dump  . }}</pre> */}}

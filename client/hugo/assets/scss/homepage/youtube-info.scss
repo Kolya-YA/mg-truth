@@ -30,7 +30,6 @@
         }
     }
 
-
     .youtube-info__stats {
         display: grid;
         // align-items: center;
@@ -56,6 +55,23 @@
             display: block;
             font-weight: 600;
             line-height: 1;
+        }
+    }
+
+    .youtube-info__link {
+        display: block;
+        padding: .5em;
+        font-size: var(--fs-500);
+        background-color: var(--accent-color-dark);
+        color: var(--accent-color-light);
+        border-radius: var(--border-radius);
+        text-decoration: none;
+        transition: background-color .2s, color .2s;
+
+        &:hover,
+        &:focus-visible {
+            background-color: var(--accent-color-light);
+            color: var(--accent-color-dark)
         }
     }
     
