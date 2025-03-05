@@ -2,7 +2,8 @@
 {{/*  {{ $filtredFeed := where . "liveBroadcastContent" "none"}}  */}}
 {{ range first 10 (where . "liveBroadcastContent" "none") }}
     {{ $title := split .title "/" }}
-    {{ $video := dict 
+    {{ $video := dict
+        "videoId" .id
         "title" (index $title 0 | strings.TrimSpace)
         "type" (index $title 1 | strings.TrimSpace)
         "pubDate" (time.Format "02.01.2006" (time .publishedAt))
@@ -20,18 +21,19 @@
         {{ end }}
     </ul>
 
-    <dialog id="ytModal">
-        <button class="dialog-close" aria-label="Close video" title="Close">
+    <dialog id="youtubeDialog">
+        <button class="close-btn" aria-label="Close video" title="Close">
             ✕
         </button>
-        <div class="video-container">
-            
-            {{/*  <iframe title="YouTube Video Player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen
-                    src=""
-                    >
-            </iframe>  */}}
+        <div class="container">
+            <iframe
+                id="youtubeIframe"
+                src=""
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture, web-share"
+                allowfullscreen
+                referrerpolicy="strict-origin-when-cross-origin"
+            >
+            </iframe>
         </div>
     </dialog>
 </div>

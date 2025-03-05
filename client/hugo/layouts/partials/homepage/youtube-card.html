@@ -1,13 +1,17 @@
 
-<li class="youtube-card" data-videoid="{{ .contentDetails.videoId }}">
-    <button class="button">
+<li class="youtube-card">
+    <button
+        class="button"
+        data-video-id="{{ .videoId }}"
+        data-video-title="{{ .title }}"
+        aria-label="Play {{ .title }}"
+    >
         <h4 class="title">{{ .title }}</h4>
         <img class="image" src="{{ .thumb.RelPermalink }}" alt="{{ .title }}" width="{{ .thumb.Width }}" height="{{ .thumb.Height }}" loading="lazy">
         <div class="info">
             <p class="date">{{ .pubDate }}</p>
             <p class="type">{{ .type }}</p>
         </div>
-        <p>{{ .snippet.description | truncate 150 }}</p>
     </button>
     {{/*  <pre>Card: {{ debug.Dump  . }}</pre>  */}}
 </li>

@@ -1,0 +1,60 @@
+#youtubeDialog {
+    max-width: calc(100vw - 2* var(--main-gap));
+    max-height: calc(100vh - 2* var(--main-gap));
+    width: 800px;
+    margin: auto;
+    padding: 0;
+    border: none;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    background: transparent;
+    overflow: hidden;
+
+    @media (width < 768px) {
+        max-width: 95vw;
+        width: 100%;
+    }
+
+    &::backdrop {
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(4px);
+    }
+
+    .container {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        background: black;
+        line-height: 0;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10;
+        transition: background 0.3s ease;
+
+        &:hover,
+        &:focus {
+            background: rgba(255, 255, 255, 0.4);
+            outline: 2px solid white;
+        }
+    }
+
+    #youtubeIframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+}
