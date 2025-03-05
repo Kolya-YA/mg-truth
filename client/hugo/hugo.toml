@@ -10,6 +10,8 @@ ignoreFiles = ['/book-shop']
         "Информационные и развлекательные проекты",
         "Матвея Ганопольского"
         ]
+    [params.googleSheet]
+        donateURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSwu-hrqAQHqcOvq5VRanJz1PiKjrCp0nft2WdMDVIIee2dQ5zOVQqdqbeRXIC6I904CK3YyPYJYNp8/pub?gid=0&single=true&output=csv"
 
     [params.youtube]
         # feedURL = "http://localhost:8787/"

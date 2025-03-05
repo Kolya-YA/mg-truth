@@ -1,0 +1,50 @@
+{{- $apiURL := site.Params.googleSheet.donateURL }}
+
+{{ $csv := resources.GetRemote $apiURL | transform.Unmarshal (dict "delimiter" ",") }}
+{{ $data := slice }}
+{{ range after 1 $csv }}
+    {{ $item := dict
+        "type" (index . 0)
+        "text" (index . 1)
+        "cur" (split (index . 2) ", ")
+        "link" (index . 3)
+    }}
+    {{ $data = $data | append $item }}
+{{ end }}
+{{ $monthly := where $data "type" "Monthly" }}
+{{ $single := where $data "type" "Single" }}
+
+
+<section class="donation">
+    <div class="width-wrapper">
+        <div class="donation__block">
+            <h2>Поддержите канал Матвея Ганапольского</h2>
+            <h3>Ежемесячная поддержка</h3>
+            <ul class="donation__list">
+                {{ range $monthly }}
+                    {{ partial "partials/homepage/donation-card.html" . }}
+                {{ end }}
+            </ul>
+            <h3>Однократная поддержка</h3>
+            <ul class="donation__list">
+                {{ range $single }}
+                    {{ partial "partials/homepage/donation-card.html" . }}
+                {{ end }}
+            </ul>
+            {{/*  <pre>debug: {{ debug.Dump ($data) }}</pre>  */}}
+        </div>
+    </div>
+</section>
+
+{{ define "partials/homepage/donation-card.html" }}
+<li class="card">
+    <a href="{{ .link }}" target="_blank" rel="noopener noreferrer">
+        {{ .text }}
+        <div class="card__cur">
+            {{ range .cur }}
+                <span>{{ . }}</span>
+            {{ end }}
+        </div>
+    </a>
+</li>
+{{ end }}

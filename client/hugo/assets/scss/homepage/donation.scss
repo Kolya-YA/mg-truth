@@ -1,0 +1,53 @@
+.donation {
+    padding-block: var(--main-gap);
+    background: var(--light-bg-color);
+    
+    .youtube-homepage__block {
+        display: grid;
+        gap: var(--main-gap);
+
+        // @media (width > 90ch) {
+        //     grid-template-columns: 1fr 2fr;
+        // }
+    }
+
+    .donation__list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: var(--main-gap);
+        list-style: none;
+        padding-inline: 0;
+        container-type: inline-size;   
+        container-name: youtube-videos;
+    }
+
+    .card {
+        background-color: var(--light-bg-color-light);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--box-shadow);
+        padding: .1rem .5rem .5rem;
+
+        a {
+            font-weight: 600;
+            text-decoration: none;
+            color: inherit;
+            line-height: 1.2;
+        }
+
+        .card__cur {
+            display: flex;
+            justify-content: end;
+            gap: calc(var(--main-gap) / 2);
+            margin-block-start: calc(var(--main-gap) / 2);
+            font-size: var(--fs-300);
+
+            span {
+                background: var(--dark-bg-gradient);
+                padding-inline: .3em;
+                border-radius: var(--border-radius);
+                color: var(--accent-color-light);
+            }
+        }
+    }
+}

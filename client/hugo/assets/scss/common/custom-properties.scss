@@ -36,6 +36,8 @@
         0 1px 2px hsl(from var(--dark-bg-color) h s 25% / 30%),
         0 1px 3px hsl(from var(--dark-bg-color) h s 25% / 15%);
 
+    --box-shadow: 0 4px 6px hsl(from var(--dark-bg-color) h s 25% / 30%);
+
     --border-radius: 0.2rem;
 
     // --ff-main: "Exo", Arial, Helvetica, sans-serif;
