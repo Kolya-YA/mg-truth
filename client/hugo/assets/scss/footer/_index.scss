@@ -1,7 +1,13 @@
+@use "footer-legal";
+
 .footer {
     background-color: var(--dark-bg-color);
     color: var(--light-bg-color);
 
+    .footer__inner {
+        padding-block: var(--main-gap);
+    }
+    
     a {
         color: inherit;
     }

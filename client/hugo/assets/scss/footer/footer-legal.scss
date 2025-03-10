@@ -1,3 +1,16 @@
 .footer-legal {
+    background-color: var(--accent-color-night);
     
+    .footer-legal__inner {
+        display: flex;
+        justify-content: space-between;
+        padding-block: var(--main-gap);
+        
+    }
+}
+
+.legal-nav {
+    display: flex;
+    gap: var(--main-gap);
+    list-style: none;
 }

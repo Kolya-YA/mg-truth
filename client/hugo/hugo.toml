@@ -5,9 +5,9 @@ title = 'MG truth'
 disableKinds = ["taxonomy", "term", ]
 ignoreFiles = ['/book-shop']
 [params]
-    logoName = "MatGun Truth"
+    logoName = "Ганапольская правда"
     heroTitle = [
-        "Информационные и развлекательные проекты",
+        "Информационные, аналитические и развлекательные проекты",
         "Матвея Ганопольского"
         ]
     [params.googleSheet]
@@ -52,3 +52,9 @@ ignoreFiles = ['/book-shop']
         weight = 10
         identifier = "data-privacy"
         url = "/data-privacy/"
+    
+    [[menu.legal]]
+        name = "About"
+        weight = 20
+        identifier = "about"
+        url = "/about/"
