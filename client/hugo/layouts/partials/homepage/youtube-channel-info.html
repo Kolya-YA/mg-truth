@@ -1,17 +1,16 @@
-{{/*
-<pre>Channel: {{ debug.Dump $info }}</pre> */}}
-<section class="youtube-info">
-    {{ with . }}
-    {{ $stat := .statistics }}
-    {{ $channelLogo := .thumbnails.medium.url }}
-    {{ $channelLogo = partial "common/get-remote-img" $channelLogo }}
+{{/* <pre>Channel: {{ debug.Dump $info }}</pre> */}}
+<div class="youtube-info">
+    {{- with . }}
+    {{- $stat := .statistics }}
+    {{- $channelLogo := .thumbnails.medium.url }}
+    {{ $channelLogo = partial "common/get-remote-img" $channelLogo -}}
 
     <p>{{ .description }}</p>
-    <header>
+    <div>
         <img src="{{ $channelLogo.RelPermalink }}" alt="channel logo" width={{ $channelLogo.Width }} height={{
              $channelLogo.Height }}>
         <h2>{{ .title }}</h2>
-    </header>
+    </div>
     <ul class="youtube-info__stats">
         <li>
             <span>{{ (substr $stat.subscriberCount 0 -3) | lang.FormatNumber 0 }} тыс.</span>
@@ -26,13 +25,11 @@
             просмотров
         </li>
     </ul>
-    {{ else}}
+    {{- else }}
     <h2>YouTube info ERROR</h2>
-    {{ end }}
-    <a class="youtube-info__link" href="https://www.youtube.com/@Ganapolsky" target="_blank" rel="noopener">
+    {{- end }}
+    <a class="youtube-info__link" href="{{ site.Params.youtube.channelUrl }}" target="_blank" rel="noopener">
         Открыть YouTube
     </a>
-</section>
-
-{{/*
-<pre>Channel: {{ debug.Dump  . }}</pre> */}}
+</div>
+{{/* <pre>Channel: {{ debug.Dump  . }}</pre> */}}

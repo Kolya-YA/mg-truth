@@ -13,6 +13,9 @@
         {{ warnf "Remote req error %s" . }}
     {{ else with .Value}}
         {{ $feed = . | transform.Unmarshal }}
+        {{/*  fetch time  */}}
+        {{ $fetchTime := time.Now.Unix }}
+        {{ $feed = merge $feed (dict "fetchTime" $fetchTime) }}
     {{ end }}
 {{ else }}
     {{ errorf "Failed to fetch YouTube feed from %s" $feedURL }}

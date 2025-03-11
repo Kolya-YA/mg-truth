@@ -1,20 +1,23 @@
-{{ $feed := partial "func/youtube-feed-fetcher.html" . }}
-{{/*  <pre>debug: {{ debug.Dump ($feed) }}</pre>  */}}
-{{ $channelData := "" }}
-{{ $playlistsData := "" }}
+{{- $feed := partial "func/youtube-feed-fetcher.html" . }}
+{{/*
+<pre>debug: {{ debug.Dump ($feed.fetchTime) }}</pre> */}}
+{{- $channelData := "" }}
+{{- $playlistsData := "" }}
 
 <section class="youtube-homepage">
     <div class="width-wrapper">
         <div class="youtube-homepage__block">
             {{ partial "homepage/youtube-channel-info" $feed.channel }}
             {{ partial "homepage/youtube-videos" $feed.videos }}
+            <p>Updated: <span id="local-time"></span> <span id="time-zone"></span></p>
         </div>
     </div>
+    <script>
+        const unixTimestamp = {{ $feed.fetchTime | safeJS }};
+        const date = new Date(unixTimestamp * 1000);
+        const localTimeString = date.toLocaleString();
+        const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        document.getElementById("local-time").textContent = localTimeString;
+        document.getElementById("time-zone").textContent = timeZone;
+    </script>
 </section>
-
-{{/*  <pre>debug: {{ debug.Dump (len $feed) }}</pre>  */}}
-{{/*  <pre>debug: {{ debug.Dump ($feed) }}</pre>  */}}
-{{/*  <pre>kind: {{ debug.Dump (where $feed "kind" "youtube#channelListResponse") }}</pre>  */}}
-{{/*  {{ partial "homepage/youtube-channel-info" (dict "channelData" $channelData "playlistsData" $playlistsData) }}  */}}
-{{/*  <pre>playlists: {{ debug.Dump $playlistsData }}</pre>  */}}
-{{/*  {{ warnf "Fetched YouTube feed from %s" $feed }}  */}}

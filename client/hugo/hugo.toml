@@ -15,6 +15,7 @@ ignoreFiles = ['/book-shop']
 
     [params.youtube]
         # feedURL = "http://localhost:8787/"
+        channelUrl = "https://www.youtube.com/@Ganapolsky"
         feedURL = "https://yt-api-proxy.kolya-ya.workers.dev/"
         channelId = "UCA_2oV10_uipWBWlyfJj16w"  # channel ID
         maxResults = 13
