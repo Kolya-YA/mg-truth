@@ -59,3 +59,9 @@ ignoreFiles = ['/book-shop']
         weight = 20
         identifier = "about"
         url = "/about/"
+
+[HTTPCache]
+  [HTTPCache.cache]
+    [HTTPCache.cache.for]
+      excludes = ['**']
+      includes = []
