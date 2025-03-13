@@ -1,6 +1,5 @@
 {{- $feed := partial "func/youtube-feed-fetcher.html" . }}
-{{/*
-<pre>debug: {{ debug.Dump ($feed.fetchTime) }}</pre> */}}
+{{/* <pre>debug: {{ debug.Dump ($feed.fetchTime) }}</pre> */}}
 {{- $channelData := "" }}
 {{- $playlistsData := "" }}
 
@@ -9,15 +8,13 @@
         <div class="youtube-homepage__block">
             {{ partial "homepage/youtube-channel-info" $feed.channel }}
             {{ partial "homepage/youtube-videos" $feed.videos }}
-            <p>Updated: <span id="local-time"></span> <span id="time-zone"></span></p>
+            <p
+                data-unixtime="{{ $feed.fetchTime | safeJS  }}"
+                data-time-text="Updated:"
+            ></p>                
         </div>
     </div>
     <script>
-        const unixTimestamp = {{ $feed.fetchTime | safeJS }};
-        const date = new Date(unixTimestamp * 1000);
-        const localTimeString = date.toLocaleString();
-        const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        document.getElementById("local-time").textContent = localTimeString;
-        document.getElementById("time-zone").textContent = timeZone;
+        
     </script>
 </section>
