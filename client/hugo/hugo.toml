@@ -19,46 +19,13 @@ ignoreFiles = ['/book-shop']
         feedURL = "https://yt-api-proxy.kolya-ya.workers.dev/"
         channelId = "UCA_2oV10_uipWBWlyfJj16w"  # channel ID
         maxResults = 13
-        [[params.youtube.playLists]]
-            name = "Ганапольская правда"
-            id = "PLnPDytUjzMjorEFqrGw5xZmf_WEfip1WP"
-        [[params.youtube.playLists]]
-            name = "В рабочий полдень"
-            id = "PLnPDytUjzMjqVgdw4DZkWlphQaWpTFBU6"
-        # [[params.youtube.playLists]]
-        #     name = "Ганапольское радио"
-        #     id = "PLnPDytUjzMjoitAJlTHBEvAIVoV3iQUU-"
-        # playListsIds = [
-        #     "PLnPDytUjzMjorEFqrGw5xZmf_WEfip1WP", # Ганапольская правда
-        #     "PLnPDytUjzMjqVgdw4DZkWlphQaWpTFBU6", # В рабочий полдень
-        #     # "PLnPDytUjzMjoitAJlTHBEvAIVoV3iQUU-", # Ганапольское радио
-        # ]
-        max_videos = 50  # Max qty of videos to show
 
 [menu]
     [[menu.top]]
         name = "YouTube"
         weight = 4
         identifier = "youtube"
-        url = "/youtube/"
-
-    [[menu.top]]
-        name = "Donate"
-        weight = 17
-        identifier = "donate"
-        url = "/donate/"
-    
-    [[menu.legal]]
-        name = "Data privacy"
-        weight = 10
-        identifier = "data-privacy"
-        url = "/data-privacy/"
-    
-    [[menu.legal]]
-        name = "About"
-        weight = 20
-        identifier = "about"
-        url = "/about/"
+        url = "https://www.youtube.com/@Ganapolsky"
 
 [HTTPCache]
   [HTTPCache.cache]

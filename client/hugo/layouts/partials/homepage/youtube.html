@@ -8,11 +8,11 @@
         <div class="youtube-homepage__block">
             {{ partial "homepage/youtube-channel-info" $feed.channel }}
             {{ partial "homepage/youtube-videos" $feed.videos }}
-            <p
-                data-unixtime="{{ $feed.fetchTime | safeJS  }}"
-                data-time-text="Updated:"
-            ></p>                
         </div>
+        <p class="youtube-homepage__updated"
+            data-unixtime="{{ $feed.fetchTime | safeJS  }}"
+            data-time-text="Updated:"
+        ></p>                
     </div>
     <script>
         

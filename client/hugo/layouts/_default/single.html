@@ -1,9 +1,11 @@
 {{ define "main" }}
-<section class="shop">
+<section class="content">
     <div class="width-wrapper">
-        <div class="shop__block">
-            <h2 class="services__title">Single page</h2>
-            <div id="shop-page"></div>
+        <div class="content__block">
+            <h2 class="content__title">{{ .Title }}</h2>
+            <div id="content__content">
+                {{ .Content }}
+            </div>
         </div>
     </div>
 </section>

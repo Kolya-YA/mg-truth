@@ -1,10 +1,7 @@
 ---
-title: "Сайт информационных и развлекательных проектов MatGun"
+title: "Сайт информационных и развлекательных проектов Матвея Ганапольского"
 description: ""
 date: 2025-02-11
 ---
 
-Home page content — Test the West!  
-Welcome to our curated collection of unique products and essential information. Discover carefully selected items that enhance your lifestyle, backed by detailed guides and expert insights.
-
-Browse our thoughtfully organized categories to find exactly what you need, all while enjoying our user-friendly shopping experience.
+На этом сайты вы найдете описания и ссылки на самые интерсные и значимые проекты журналиста Матвея Ганапольского. Вы узнаете о вариантах спонсорства и поддержики Матвея Ганапольского и его деятельности.
