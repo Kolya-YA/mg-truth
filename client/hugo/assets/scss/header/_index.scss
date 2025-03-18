@@ -148,7 +148,7 @@
             }
 
             &[data-visibility="hidden"] {
-                visibility: var(--desktop-nav-visibility, hidden);
+                // visibility: var(--desktop-nav-visibility, hidden);
             }
         }
     }
