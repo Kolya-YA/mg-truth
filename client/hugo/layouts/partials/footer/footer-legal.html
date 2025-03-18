@@ -4,9 +4,8 @@
             <div class="footer__copyright">
                 Copyright © {{ now.Format "2006" }}
             </div>
-            <div class="footer-legal__menu">
+            <ul class="footer-legal__nav">
                 {{- with site.Menus.legal}}
-                <ul class="legal-nav">
                     {{- range . }}
                     {{- $active := page.IsMenuCurrent "legal" . }}
                     <li class="legal-nav__item">
@@ -17,9 +16,8 @@
                         </a>
                     </li>
                     {{- end }}
-                </ul>
                 {{- end }}
-            </div>
+            </ul>
         </div>
     </div>
 </div>

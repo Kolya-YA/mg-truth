@@ -2,14 +2,12 @@ const navTogglerBtn = document.querySelector('.nav-toggler button');
 const headerNav = document.querySelector('.header__nav');
 
 navTogglerBtn.addEventListener('click', ({ target }) => {
-    const newStatus = navTogglerBtn.getAttribute('aria-expanded') === 'true'
+    const isMenuOpen = navTogglerBtn.getAttribute('aria-expanded') === 'true'
         ? 'false'
         : 'true';        
     const navVisibility = headerNav.getAttribute('data-visibility');
     
-    navTogglerBtn.setAttribute('aria-expanded', newStatus)
-
-    console.log("vis", navVisibility)
+    navTogglerBtn.setAttribute('aria-expanded', isMenuOpen)
     
     if (navVisibility === 'hidden') {
         headerNav.setAttribute('data-visibility', 'visible');
@@ -17,7 +15,7 @@ navTogglerBtn.addEventListener('click', ({ target }) => {
     } else {
         headerNav.classList.remove('header__nav--open');
         
-        // wait for transition to end
+        // wait for transition finish
         headerNav.addEventListener('transitionend', () => {
             headerNav.setAttribute('data-visibility', 'hidden');
         }, { once: true });

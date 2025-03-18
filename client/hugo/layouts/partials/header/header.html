@@ -2,13 +2,13 @@
     {{ partial "header/skip-to-content" }}
     <div class="width-wrapper">
         <div class="header__block">
-            <a href="{{ site.Home.RelPermalink }}" class="header__logo" title="{{ site.Params.logoName }}. Startseite.">
+            <a href="{{ site.Home.RelPermalink }}" class="header__logo" title="{{ site.Params.logoName }}. Home page.">
                 {{/*  {{ partial "logo-svg" . }}  */}}
                 <span class="header__logo-name">{{ site.Params.logoName }}</span>
             </a>
             {{- partial "header/nav-toggler" . }}
             
-            <nav class="header__nav" id="mainnav" data-visibility="hidden" aria-label="Hauptmenü">
+            <nav class="header__nav" id="mainnav" data-visibility="hidden" aria-label="Main menu">
                 <ul class="header__nav-list">
                     {{- range .Site.Menus.top }}
                     {{-

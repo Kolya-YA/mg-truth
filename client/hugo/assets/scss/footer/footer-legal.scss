@@ -4,13 +4,18 @@
     .footer-legal__inner {
         display: flex;
         justify-content: space-between;
-        padding-block: var(--main-gap);
-        
+        padding-block: var(--main-gap);        
     }
-}
-
-.legal-nav {
-    display: flex;
-    gap: var(--main-gap);
-    list-style: none;
+    
+    .footer-legal__nav {
+        display: grid;
+        gap: calc(var(--main-gap) / 2);
+        padding: 0;
+        list-style: none;
+    
+        @media (width > 26rem) {
+            grid-auto-flow: column;
+            gap: var(--main-gap);
+        }
+    }
 }
