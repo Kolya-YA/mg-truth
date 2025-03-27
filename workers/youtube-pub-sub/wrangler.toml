@@ -16,6 +16,8 @@ enabled = false
   invocation_logs = true
 
 [vars]
+PUBSUBHUBBUB_HUB = "https://pubsubhubbub.appspot.com/subscribe"
+LEASE_DAYS = 8
 CALLBACK_URL = "https://youtube-pub-sub.kolya-ya.workers.dev/"
 DEPLOY_HOOK_URL = "https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/e106f99d-ae7b-4f4f-a42c-e274439a49e4"
 YOUTUBE_CHANNEL_ID = "UCA_2oV10_uipWBWlyfJj16w"
