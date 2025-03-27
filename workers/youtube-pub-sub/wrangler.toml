@@ -1,0 +1,21 @@
+name = "youtube-pub-sub"
+main = "src/worker.js"
+compatibility_date = "2025-03-05"
+workers_dev = true
+preview_urls = false
+
+[triggers]
+crons = [ "0 22 * * tue" ]
+
+[observability]
+enabled = false
+
+  [observability.logs]
+  enabled = true
+  head_sampling_rate = 1
+  invocation_logs = true
+
+[vars]
+CALLBACK_URL = "https://youtube-pub-sub.kolya-ya.workers.dev/"
+DEPLOY_HOOK_URL = "https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/e106f99d-ae7b-4f4f-a42c-e274439a49e4"
+YOUTUBE_CHANNEL_ID = "UCA_2oV10_uipWBWlyfJj16w"
