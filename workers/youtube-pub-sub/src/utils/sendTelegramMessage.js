@@ -56,9 +56,10 @@ async function parseXML(xmlString) {
 }
 
 function createTgMsg(videoData) {
+    const status = videoData.updatedAt === videoData.publishedAt ? 'Новое' : 'Обновлено';
+
     return `
-Новое видео на канале <b>${videoData.channelTitle}</b>
+<u>${status}</u> видео на канале <b>${videoData.channelTitle}</b>
 <a href="${videoData.url}">${videoData.title}</a>
-<a href="${videoData.channelUrl}">Перейти на канал</a>
-    `;
+<a href="${videoData.channelUrl}">Перейти на канал</a>`;
 }
