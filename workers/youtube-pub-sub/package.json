@@ -5,12 +5,13 @@
 	"scripts": {
 		"deploy": "wrangler deploy",
 		"dev": "wrangler dev",
+		"dev-sch": "wrangler dev --test-scheduled",
 		"start": "wrangler dev"
 	},
 	"devDependencies": {
-		"wrangler": "^4.6.0"
+		"wrangler": "^4.7.0"
 	},
 	"dependencies": {
-		"fast-xml-parser": "^5.0.9"
+		"fast-xml-parser": "^5.1.0"
 	}
 }
