@@ -16,7 +16,7 @@ const subscribeToChannel = async (env) => {
 
   // Send subscription request
   try {
-    const response = await fetch(PUBSUBHUBBUB_HUB, {
+    const response = await fetch(env.PUBSUBHUBBUB_HUB, {
       method: 'POST',
       body: formData
     });
