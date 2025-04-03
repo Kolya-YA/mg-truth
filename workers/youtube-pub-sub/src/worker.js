@@ -17,6 +17,7 @@ export default {
         ctx.waitUntil(callAPIs(xmlData, env));
         return new Response('Accepted', { status: 202 });
       } else {
+        console.log("Retutning response from handleRequest", xmlData);
         return xmlData
       }
     } catch (error) {
