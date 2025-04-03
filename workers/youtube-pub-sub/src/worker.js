@@ -12,11 +12,13 @@ export default {
   async fetch(request, env, ctx) {
     try {
       const xmlData = await handleRequest(request, env);
+
       if (!(xmlData instanceof Response)) {
         ctx.waitUntil(callAPIs(xmlData, env));
+        return new Response('Accepted', { status: 202 });
+      } else {
+        return xmlData
       }
-
-      return new Response('Accepted', { status: 202 });
     } catch (error) {
       if (error instanceof HtmlError) {
         return new Response(error.message, { status: error.status });
