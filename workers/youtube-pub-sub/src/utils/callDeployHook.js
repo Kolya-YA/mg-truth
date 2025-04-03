@@ -1,10 +1,9 @@
-const callDeployHook = async () => {
-
+const callDeployHook = async (env) => {
     if (!env.DEPLOY_HOOK_URL) {
         console.error('DEPLOY_HOOK_URL is not set');
         return new Response('Internal Server Error', { status: 500 });
     }
-
+    
     const hookResponse = await fetch(env.DEPLOY_HOOK_URL, {
         method: 'POST',
     });

@@ -34,7 +34,7 @@ export default {
 async function callAPIs(xmlData, env) {
   try {
     await Promise.allSettled([
-      callDeployHook(),
+      callDeployHook(env),
       sendTelegramMessage(xmlData, env)
     ])
     
