@@ -1,65 +1,38 @@
-import { XMLParser } from "fast-xml-parser";
-
-const sendTelegramMessage = async (xmlString, env) => {
-    const TELEGRAM_BOT_TOKEN = env.TELEGRAM_BOT_TOKEN;
-    const TELEGRAM_CHAT_ID = env.TELEGRAM_CHAT_ID;
-    const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
-    const videoData = await parseXML(xmlString);
-    // console.log("Video data:", videoData);
+const sendTelegramMessage = async (videoData, env) => {
+    const url = `https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`;
     const tgMsg = createTgMsg(videoData);
 
     const response = await fetch(url, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-            chat_id: TELEGRAM_CHAT_ID,
+            chat_id: env.TELEGRAM_CHAT_ID,
             text: tgMsg,
             parse_mode: "HTML",
             disable_web_page_preview: true
         })
     });
 
-    const result = await response.json();
-    // console.log("Ответ Telegram:", result);
+    const tgJson = await response.json();
     if (!response.ok) {
         console.error("Ошибка отправки сообщения в Telegram:", result);
     }
-
-    return new Response('OK', { status: 200 });
+    
+    return tgJson.message_id;
 }
 
 export { sendTelegramMessage };
 
-async function parseXML(xmlString) {
-    const options = {
-        ignoreAttributes: false,
-        attributeNamePrefix: "@_",
-        attributesGroupName: "attrs"
-    }
-
-    const parser = new XMLParser(options);
-    const result = parser.parse(xmlString);
-    const entry = result.feed.entry;
-    const videoData = {
-        channelTitle: entry.author.name,
-        url: entry.link?.attrs['@_href'] || '',
-        title: entry.title,
-        channelUrl: entry.author.uri,
-        // now not used
-        publishedAt: entry.published,
-        videoId: entry["yt:videoId"],
-        channelId: entry["yt:channelId"],
-        updatedAt: entry.updated
-    }
-
-    return videoData;
-}
-
 function createTgMsg(videoData) {
-    const status = videoData.updatedAt === videoData.publishedAt ? 'Новое' : 'Обновлено';
+    const bStatus = videoData.broadcastStatus;
+    const status = bStatus === 'upcoming'
+        ? 'Запланированно'
+        : bStatus === 'live'
+            ? 'В эфире'
+            : 'Опубликовано';
 
     return `
-<u>${status}</u> видео на канале <b>${videoData.channelTitle}</b>
 <a href="${videoData.url}">${videoData.title}</a>
+<u>${status}</u> видео на канале <b>${videoData.channelTitle}</b>
 <a href="${videoData.channelUrl}">Перейти на канал</a>`;
 }

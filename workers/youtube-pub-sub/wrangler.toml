@@ -15,6 +15,10 @@ enabled = false
   head_sampling_rate = 1
   invocation_logs = true
 
+[[kv_namespaces]]
+binding = "MG_TG_MSG"
+id = "33667da528ad4702ae47cf1b8d557e0a"
+
 [vars]
 PUBSUBHUBBUB_HUB = "https://pubsubhubbub.appspot.com/subscribe"
 LEASE_DAYS = 8
