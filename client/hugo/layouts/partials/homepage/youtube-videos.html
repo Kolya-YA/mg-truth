@@ -1,10 +1,12 @@
 {{- $videos := slice }}
-{{- range first 10 (where . "liveBroadcastContent" "none") }}
+{{/*  {{- range first 10 (where . "liveBroadcastContent" "none") }}  */}}
+{{- range first 10 . }}
     {{- $title := split .title "/" }}
     {{- $video := dict
         "videoId" .id
         "title" (index $title 0 | strings.TrimSpace)
         "type" (index $title 1 | strings.TrimSpace)
+        "broadcastStatus" .liveBroadcastContent
         "pubDate" (time.Format "02.01.2006" (time .publishedAt))
         "thumb" (partial "common/get-remote-img" .thumbnails.medium.url)
     }}

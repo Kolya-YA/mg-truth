@@ -58,6 +58,15 @@
         .date {
             font-weight: 600;
         }
+
+        .broadcast {
+            padding: .08em .4em .1em;
+            margin-inline-start: auto;
+            text-transform: uppercase;
+            width: min-content;
+            color: var(--light-text-color);
+            background-color: var(--warning-color);
+        }
         
         .type {
             font-size: var(--fs-200);

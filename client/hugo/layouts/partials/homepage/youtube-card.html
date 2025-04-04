@@ -1,4 +1,4 @@
-
+{{ $broadcastStatus := cond (eq .broadcastStatus "none") "" .broadcastStatus }}
 <li class="youtube-card">
     <button
         class="button"
@@ -10,6 +10,9 @@
         <img class="image" src="{{ .thumb.RelPermalink }}" alt="{{ .title }}" width="{{ .thumb.Width }}" height="{{ .thumb.Height }}" loading="lazy">
         <div class="info">
             <p class="date">{{ .pubDate }}</p>
+            {{ with $broadcastStatus }}
+            <p class="broadcast">{{ . }}</p>
+            {{ end }}
             <p class="type">{{ .type }}</p>
         </div>
     </button>
