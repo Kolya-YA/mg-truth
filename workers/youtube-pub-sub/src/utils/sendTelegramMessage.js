@@ -9,7 +9,7 @@ const sendTelegramMessage = async (videoData, env) => {
             chat_id: env.TELEGRAM_CHAT_ID,
             text: tgMsg,
             parse_mode: "HTML",
-            disable_web_page_preview: true
+            // disable_web_page_preview: true
         })
     });
 
@@ -32,7 +32,7 @@ function createTgMsg(videoData) {
             : 'Опубликовано';
 
     return `
-<a href="${videoData.url}">${videoData.title}</a>
-<u>${status}</u> видео на канале <b>${videoData.channelTitle}</b>
-<a href="${videoData.channelUrl}">Перейти на канал</a>`;
+<u>${status}</u> видео на канале <a href="${videoData.channelUrl}"><b>${videoData.channelTitle}</b></a>
+
+<a href="${videoData.url}">${videoData.title}</a>`;
 }
