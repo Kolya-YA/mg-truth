@@ -9,7 +9,12 @@ const sendTelegramMessage = async (videoData, env) => {
             chat_id: env.TELEGRAM_CHAT_ID,
             text: tgMsg,
             parse_mode: "HTML",
-            // disable_web_page_preview: true
+            link_preview_options: {
+                // is_disabled: true,
+                url: videoData.url,
+                show_above_text: true,
+                // prefer_small_media: true,
+            }
         })
     });
 
@@ -26,13 +31,14 @@ export { sendTelegramMessage };
 function createTgMsg(videoData) {
     const bStatus = videoData.broadcastStatus;
     const status = bStatus === 'upcoming'
-        ? 'Запланированно'
+        ? 'АНОНСИРОВАНО'
         : bStatus === 'live'
-            ? 'В эфире'
-            : 'Опубликовано';
+            ? 'В ЭФИРЕ'
+            : 'ОПУБЛИКОВАНО';
 
     return `
-<u>${status}</u> видео на канале <a href="${videoData.channelUrl}"><b>${videoData.channelTitle}</b></a>
+<a href="${videoData.url}">${videoData.title}</a>
+    
+<b>${status}</b> видео на канале <a href="${videoData.channelUrl}"><b>${videoData.channelTitle}</b></a>`;
 
-<a href="${videoData.url}">${videoData.title}</a>`;
 }
