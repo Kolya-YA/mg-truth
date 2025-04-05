@@ -24,16 +24,13 @@ async function callAPIs(videoData, env) {
         callDeployHook(env),
     ])
       
-    console.log('TG message ID:', tgMsgId);c      
+    console.log('TG message ID:', tgMsgId);   
 
-    await env.MG_TG_MSG.put(videoData.videoId, '', {
+    return await env.MG_TG_MSG.put(videoData.videoId, '', {
         metadata: { meassage_id: tgMsgId, broadcastStatus: videoData.broadcastStatus },
-        expirationTtl: 60 * 60 * 24 * 2 // 1 day
+        expirationTtl: 60 * 60 * 24 * 2 // 2 day
     });
 
-    // const publishedMsg = await env.MG_TG_MSG.getWithMetadata(videoData.videoId)
-    // console.log("Published message bStatus:", publishedMsg?.metadata?.broadcastStatus);
-    
   } catch (error) {
     console.error('Error in fetch API:', error);
     return new Response('Error in fetch API', { status: 500 });

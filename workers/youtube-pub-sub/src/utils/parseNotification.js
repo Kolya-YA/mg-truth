@@ -10,8 +10,9 @@ const parseNotification = async (request, env) => {
     // Get the message ID from KV
     const publishedMsg = await env.MG_TG_MSG.getWithMetadata(videoData.videoId)
     
-    console.log("VideoID:", videoData.videoId);
-    console.log("Published message:", publishedMsg);
+    // console.log("VideoID:", videoData.videoId);
+    // console.log("KV list: ", await env.MG_TG_MSG.list());
+    // console.log("Published message:", publishedMsg?.metadata?.broadcastStatus === videoData.broadcastStatus);
     
     if (publishedMsg?.metadata?.broadcastStatus === videoData.broadcastStatus) {
         return false;
