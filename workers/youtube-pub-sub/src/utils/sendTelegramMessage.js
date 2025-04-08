@@ -10,10 +10,10 @@ const sendTelegramMessage = async (videoData, env) => {
             text: tgMsg,
             parse_mode: "HTML",
             link_preview_options: {
-                // is_disabled: true,
+                is_disabled: videoData.broadcastStatus === 'upcoming',
                 url: videoData.url,
                 show_above_text: true,
-                // prefer_small_media: true,
+                prefer_small_media: videoData.broadcastStatus === 'live',
             }
         })
     });
