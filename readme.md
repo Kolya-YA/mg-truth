@@ -87,7 +87,11 @@ This project is organized as a monorepo with several components:
 
 ## 📜 License
 
-This project is for non-commercial, fan-created content only.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+This is a non-commercial fan project created to showcase Matvey Ganapolsky's content.
 
 ## 🔗 Links
 
