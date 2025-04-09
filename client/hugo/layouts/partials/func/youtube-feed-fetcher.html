@@ -20,6 +20,15 @@
 {{ else }}
     {{ errorf "Failed to fetch YouTube feed from %s" $feedURL }}
 {{ end }}
+
+{{ $lastTitle :=  where $feed.videos "liveBroadcastContent" "none" }}
+{{ $lastTitle =  index $lastTitle 0 }}
+{{ $lastTitle = $lastTitle.title }}
+
+{{/*  {{ warnf "Last title: %s" $lastTitle}}  */}}
+
+{{ page.Store.Set "lastTitle" $lastTitle }}
+
 {{ return $feed }}
 
 {{/*

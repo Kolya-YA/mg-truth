@@ -1,39 +1,41 @@
-{{/*  {{- $title := partial "head/title" }}  */}}
-{{/*  {{- $description := partial "head/description" }}  */}}
+{{- $title := partial "head/title" }}
+{{- $description := partial "head/description" }}
+
 {{- $styles := partial "head/styles" }}
-{{/*  {{- $ogImg := resources.Get (path.Join "images" .Site.Params.HeroBackground) }}  */}}
-{{/*  {{- with .Page.Params.cover_img }}  */}}
-{{/*  {{- $ogImg = $.Resources.GetMatch . -}}  */}}
-{{/*  {{- end }}  */}}
-{{/*  {{- $ogImg = $ogImg.Resize "512x webp q70" }}  */}}
+
+{{/* {{- $ogImg := resources.Get (path.Join "images" .Site.Params.HeroBackground) }} */}}
+{{/* {{- with .Page.Params.cover_img }} */}}
+{{/* {{- $ogImg = $.Resources.GetMatch . -}} */}}
+{{/* {{- end }} */}}
+{{/* {{- $ogImg = $ogImg.Resize "512x webp q70" }} */}}
 
 <head>
     {{ template "_internal/google_analytics.html" . }}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{/*  <title>{{ $title }}</title>  */}}
+    <title>{{ $title }}</title>
     <link rel="preload" href="{{ $styles.RelPermalink }}" as="style" integrity="{{ $styles.Data.Integrity }}">
-    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">    
-    {{/*  <meta property="og:title" content="{{ $title }}">
+    <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
+    <meta property="og:title" content="{{ $title }}">
     <meta name="description" content="{{ $description }}">
-    <meta property="og:description" content="{{ $description }}">
-    <meta property="og:image" content="{{ $ogImg.Permalink }}">  */}}
+    {{/*  <meta property="og:description" content="{{ $description }}">  */}}
+    {{/*  <meta property="og:image" content="{{ $ogImg.Permalink }}"> */}}
     <meta property="og:locale" content="{{ with site.LanguageCode | default site.Language.Lang }}{{ . }}{{ end }}">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="og:url" content="{{ .Permalink }}">
     <link rel="canonical" href="{{ .Permalink }}">
-    <link rel="icon" type="image/png" href="{{ "favicon-96x96.png" | absURL }}" sizes="96x96" />
-    <link rel="icon" href="{{ "favicon.svg" | absURL }}" type="image/svg+xml">
-    <link rel="shortcut icon" href="{{ "favicon.ico" | absURL }}">
-    <link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | absURL }}">
+    <link rel="icon" type="image/png" href="{{ " favicon-96x96.png" | absURL }}" sizes="96x96" />
+    <link rel="icon" href="{{ " favicon.svg" | absURL }}" type="image/svg+xml">
+    <link rel="shortcut icon" href="{{ " favicon.ico" | absURL }}">
+    <link rel="apple-touch-icon" href="{{ " apple-touch-icon.png" | absURL }}">
     <meta name="apple-mobile-web-app-title" content="{{ site.Params.name }}" />
-    <link rel="manifest" href="{{ "my.webmanifest" | absURL }}">
+    <link rel="manifest" href="{{ " my.webmanifest" | absURL }}">
 
     {{- if page.Params.NoRobots }}
-    <meta name="robots" content="noindex, follow"> 
+    <meta name="robots" content="noindex, follow">
     {{- end }}
 
     <meta name="theme-color" content="#5cb931">
-    {{/*  {{ partial "head/json-ld" (dict "p_title" $title "p_decsr" $description)  }}  */}}
+    {{/* {{ partial "head/json-ld" (dict "p_title" $title "p_decsr" $description) }} */}}
 </head>

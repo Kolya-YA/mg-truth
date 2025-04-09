@@ -1,0 +1,17 @@
+{{ $description := site.Params.description }}
+
+{{ with (page.Store.Get "lastTitle") }}
+    {{ $description = (printf "%s | %s" $description .) }}
+{{ end }}
+
+{{ warnf "Additionl descr: %s"  $description }}
+
+{{ if not page.IsHome }}
+    {{ with page.Description }}
+        {{ $description = . }}
+    {{ else }}
+        {{ $description = page.Summary | plainify}}
+    {{ end }}
+{{ end }}
+
+{{ return $description }}

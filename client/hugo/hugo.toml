@@ -1,10 +1,11 @@
 baseURL = 'https://example.org/'
 languageCode = 'ru'
-title = 'MG truth'
+title = 'Матвей Ганопольский: YouTube канал "Ганапольская правда", книги, новости'
 
 disableKinds = ["taxonomy", "term", ]
 ignoreFiles = ['/book-shop']
 [params]
+    description = "Проекты Матвея Ганапольского. Узнайте о его информационных и развлекательных проектах, смотрите видео с YouTube и поддержите автора"
     logoName = "Ганапольская правда"
     heroTitle = [
         "Информационные, аналитические и развлекательные проекты",
