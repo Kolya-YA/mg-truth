@@ -1,13 +1,15 @@
 {{ $description := site.Params.description }}
 {{ $feed := (page.Store.Get "youTubeData") }}
-{{ $lastTitle := where $feed.videos "liveBroadcastContent" "none" }}
-{{ $lastTitle = index $lastTitle 0 }}
-{{ $lastTitle = $lastTitle.title }}
-
-{{ with $lastTitle }}
-    {{ $description = (printf "%s | %s" $description .) }}
+{{ if $feed }}
+    {{ $lastTitle := where $feed.videos "liveBroadcastContent" "none" }}
+    {{ $lastTitle = index $lastTitle 0 }}
+    {{ $lastTitle = $lastTitle.title }}
+    
+    {{ with $lastTitle }}
+        {{ $description = (printf "%s | %s" $description .) }}
+    {{ end }}
+    {{/*  {{ warnf "Last YT title: %s"  $lastTitle }}  */}}
 {{ end }}
-{{/*  {{ warnf "Additionl descr: %s"  $description }}  */}}
 
 {{ if not page.IsHome }}
     {{ with page.Description }}
