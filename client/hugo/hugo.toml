@@ -1,4 +1,4 @@
-baseURL = 'https://example.org/'
+baseURL = 'https://mg-truth.plus360.eu/'
 languageCode = 'ru'
 title = 'Матвей Ганопольский: YouTube канал "Ганапольская правда", книги, новости'
 
@@ -20,6 +20,8 @@ ignoreFiles = ['/book-shop']
         feedURL = "https://yt-api-proxy.kolya-ya.workers.dev/"
         channelId = "UCA_2oV10_uipWBWlyfJj16w"  # channel ID
         maxResults = 10
+    [params.shop]
+        shopIsEnabled = false
 
 [menu]
     [[menu.top]]

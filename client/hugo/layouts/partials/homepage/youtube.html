@@ -1,5 +1,5 @@
-{{- $feed := partial "func/youtube-feed-fetcher.html" . }}
-{{/* <pre>debug: {{ debug.Dump ($feed.fetchTime) }}</pre> */}}
+{{- $feed := (.Store.Get "youTubeData") }}
+{{/*  <pre>debug: {{ debug.Dump ($feed.fetchTime) }}</pre>  */}}
 {{- $channelData := "" }}
 {{- $playlistsData := "" }}
 
@@ -14,7 +14,4 @@
             data-time-text="Updated:"
         ></p>                
     </div>
-    <script>
-        
-    </script>
 </section>

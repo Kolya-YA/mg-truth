@@ -1,3 +1,9 @@
+{{- if .IsHome }}
+{{- $youTubeData := partial "func/youtube-feed-fetcher.html" . -}}
+{{/*  <pre>debug: {{ debug.Dump ($youTubeData) }}</pre>  */}}
+{{- .Store.Set "youTubeData" $youTubeData }}
+{{- end -}}
+
 <!DOCTYPE html>
 <html{{ with site.LanguageCode | default site.Language.Lang }} lang="{{ . }}" {{ end }}>
 {{- partial "head/head" . -}}

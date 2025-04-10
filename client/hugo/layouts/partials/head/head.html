@@ -1,7 +1,6 @@
 {{- $title := partial "head/title" }}
 {{- $description := partial "head/description" }}
-
-{{- $styles := partial "head/styles" }}
+{{- $styles := partial "head/styles" -}}
 
 {{/* {{- $ogImg := resources.Get (path.Join "images" .Site.Params.HeroBackground) }} */}}
 {{/* {{- with .Page.Params.cover_img }} */}}
@@ -30,7 +29,7 @@
     <link rel="shortcut icon" href="{{ " favicon.ico" | absURL }}">
     <link rel="apple-touch-icon" href="{{ " apple-touch-icon.png" | absURL }}">
     <meta name="apple-mobile-web-app-title" content="{{ site.Params.name }}" />
-    <link rel="manifest" href="{{ " my.webmanifest" | absURL }}">
+    {{/*  <link rel="manifest" href="{{ " my.webmanifest" | absURL }}">  */}}
 
     {{- if page.Params.NoRobots }}
     <meta name="robots" content="noindex, follow">
