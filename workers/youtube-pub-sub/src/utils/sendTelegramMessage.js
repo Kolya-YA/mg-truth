@@ -37,8 +37,9 @@ function createTgMsg(videoData) {
             : 'ОПУБЛИКОВАНО';
 
     return `
-<a href="${videoData.url}">${videoData.title}</a>
-    
-<b>${status}</b> видео на канале <a href="${videoData.channelUrl}"><b>${videoData.channelTitle}</b></a>`;
+<b>${status}</b> видео на канале <a href="${videoData.channelUrl}"><b>${videoData.channelTitle}</b></a>
+<a href = "${videoData.url}" > ${ videoData.title }</ >
+
+Все подробности на нашем <a href="${env.SITE_URL}"><b>сайте</b></a>`;   
 
 }
