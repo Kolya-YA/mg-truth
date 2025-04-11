@@ -9,7 +9,7 @@
     place-content: center;
     width: var(--btt-size);
     height: var(--btt-size);
-    background-color: var(--accent-color);
+    background-color: var(--accent);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     visibility: hidden;
@@ -20,7 +20,7 @@
         border-left: solid;
         border-top: solid;
         border-width: 3px;
-        border-color: var(--light-text-color);
+        border-color: var(--text-on-dark);
         transform:
             translateY(calc(var(--btt-size) / 7))
             rotate(45deg);

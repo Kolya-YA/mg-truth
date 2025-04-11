@@ -1,23 +1,43 @@
 :root, ::backdrop {
-    /* Colors */
+  --base: oklch(38% 0.09 200);
+  --base-dark: oklch(from var(--base) 25% 0.07 h);
+  --base-darker: oklch(from var(--base) 18% 0.05 h);
+  --base-light: oklch(from var(--base) 90% 0.015 h);
+  --base-lighter: oklch(from var(--base) 96% 0.01 h);
 
-    --dark-text-color: hsl(0 0% 20%);
-    --light-text-color: hsl(0 0% 98%);
+  --text-on-dark: oklch(from var(--base) 98% 0.005 calc(h + 120)); 
+  --text-on-light: oklch(from var(--base) 20% 0.01 calc(h - 130)); 
 
-    --warning-color: hsl(348 56% 47%);        
+  --accent: oklch(from var(--base) 70% 0.26 calc(h - 95));
+  --accent-hover: oklch(from var(--accent) calc(l - .15) c h);
 
-    --accent-color: hsl(207, 35%, 53%);
-    --accent-color-night: hsl(from var(--accent-color) h s 16%);
-    --accent-color-dark: hsl(from var(--accent-color) h s 26%);
-    --accent-color-light: hsl(from var(--accent-color) h s 82%);
+  --warning: oklch(60% 0.24 25);
+  --warning-bg: oklch(96% 0.06 25);
 
-    --dark-bg-color: hsl(94 0% 26%);
-    --dark-bg-color-dark: hsl(from var(--dark-bg-color) h s 6%);
-    --dark-bg-color-light: hsl(from var(--dark-bg-color) h s 46%);
-    
-    --light-bg-color: hsl(94 0% 88%);
-    --light-bg-color-dark: hsl(from var(--light-bg-color) h s 78%);
-    --light-bg-color-light: hsl(from var(--light-bg-color) h s 100%);
+  --header-footer-bg: var(--base-dark);
+  --header-footer-text: var(--text-on-dark);
+
+  --section-bg-1: var(--base-light);
+  --section-bg-2: var(--base-lighter);
+
+  --card-bg: var(--section-bg-1);
+  --card-text: var(--text-on-light);
+
+  --border-color: oklch(80% 0.015 140);
+
+  --gradient-header: linear-gradient(135deg, var(--base-dark), var(--base-darker));
+  --gradient-card: linear-gradient(135deg, var(--base-light), var(--base-lighter));
+  --gradient-button: linear-gradient(135deg, var(--accent), var(--accent-hover));
+
+  --shadow-light: 0 2px 6px color-mix(in oklch, black 10%, transparent);
+  --shadow-medium: 0 4px 12px color-mix(in oklch, black 20%, transparent);
+  --shadow-dark: 0 8px 24px color-mix(in oklch, black 30%, transparent);
+
+//   OLD Schreme
+
+    --light-bg-color: var(--base-lighter);
+    --light-bg-color-dark: var(--base-light);
+    --light-bg-color-light: hsl(from var(--base-lighter) h s 100%);
 
     --link-color: hsl(240 20% 70%);
     --link-color-dark: hsl(from var(--link-color) h s 50%);
@@ -25,15 +45,11 @@
 
     --dark-bg-gradient: radial-gradient(
         farthest-corner circle at 6% 83%,
-        hsl(from var(--accent-color-night) h s 56%) 1% 1%, 28%,
-        hsl(from var(--accent-color-night) h s 32%) 100%
+        oklch(from var(--base-dark) 48% c h) 1% 1%, 28%,
+        oklch(from var(--base-dark) 32% c h) 100%
     );
     
-    --box-shadow:
-        0 1px 2px hsl(from var(--dark-bg-color) h s 25% / 30%),
-        0 1px 3px hsl(from var(--dark-bg-color) h s 25% / 15%);
-
-    --box-shadow: 0 4px 6px hsl(from var(--dark-bg-color) h s 25% / 30%);
+    --box-shadow: var(--shadow-light);
 
     --border-radius: 0.2rem;
 

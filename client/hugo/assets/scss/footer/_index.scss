@@ -1,8 +1,8 @@
 @use "footer-legal";
 
 .footer {
-    background-color: var(--dark-bg-color);
-    color: var(--light-bg-color);
+    background: var(--dark-bg-gradient);
+    color: var(--text-on-dark);
 
     .footer__inner {
         padding-block: var(--main-gap);
@@ -10,5 +10,6 @@
     
     a {
         color: inherit;
+        text-decoration: none;
     }
 }

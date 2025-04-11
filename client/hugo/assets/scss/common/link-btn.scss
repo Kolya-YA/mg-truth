@@ -11,8 +11,8 @@
         font-family: var(--ff-accent);
         font-size: var(--fs-500);
         font-weight: 600;
-        color: var(--dark-text-color);
-        background-color: var(--accent-color);
+        color: var(--text-on-light);
+        background-color: var(--accent);
         box-shadow: var(--box-shadow);
         border-radius: var(--border-radius);
         transition: background-color 300ms;

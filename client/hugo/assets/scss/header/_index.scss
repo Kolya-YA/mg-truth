@@ -4,7 +4,7 @@
 
 .header {    
     position: relative;
-    background-color: var(--dark-bg-color);
+    background-color: var(--base-dark);
     
     @media (min-width: 70em) {
         --toggler-display: none;
@@ -48,8 +48,8 @@
             overflow-y: var(--desktop-overflow-y, scroll);
             padding: var(--desktop-padding, 0.6rem);
             color: var(--light-bg-color);
-            background-color: var(--desktop-border, var(--light-text-color));
-            background-color: var(--dark-bg-color);
+            background-color: var(--desktop-border, var(--text-on-dark));
+            background-color: var(--base-dark);
             box-shadow: var(--desktop-border, var(--nav-list-shadow, -5px 0 11px 0 #00000046));
         
             &-list {
@@ -89,7 +89,7 @@
                     padding-block: var(--main-gap);
                     padding-inline: var(--block-gap);
                     list-style: none;
-                    background-color: var(--dark-bg-color);
+                    background-color: var(--base-dark);
                     border-bottom-left-radius: var(--border-radius);
                     border-bottom-right-radius: var(--border-radius);
                     box-shadow: var(--box-shadow);

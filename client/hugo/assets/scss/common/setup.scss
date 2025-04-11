@@ -33,7 +33,7 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     background-color: var(--light-bg-color);
-    color: var(--dark-text-color);
+    color: var(--text-on-light);
 
     &.dialog-open {
         overflow: hidden;
@@ -78,7 +78,7 @@ table {
     margin-block-start: var(--main-gap);
 
     th {
-        background-color: var(--accent-color-light);
+        background-color: var(--accent);
         
         &:not(:first-child) {
             border-left: solid var(--border-width) var(--light-bg-color);
@@ -105,7 +105,7 @@ table {
     outline:
         var(--outline-width, var(--outline-size))
         var(--outline-style, solid)
-        var(--outline-color, var(--accent-color-light                   ));
+        var(--outline-color, var(--accent));
     outline-offset: var(--outline-offset, calc(var(--outline-size) * 1.5) );
 }
 

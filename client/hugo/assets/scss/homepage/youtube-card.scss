@@ -33,7 +33,7 @@
         padding: .3em .5em .2em;
         background: var(--dark-bg-gradient);
         text-align: start;
-        color: var(--accent-color-light);
+        color: var(--text-on-dark);
         word-break: break-word;
         hyphens: auto;
         line-height: 1.2;
@@ -64,8 +64,9 @@
             margin-inline-start: auto;
             text-transform: uppercase;
             width: min-content;
-            color: var(--light-text-color);
-            background-color: var(--warning-color);
+            color: var(--text-on-dark);
+            font-weight: 600;
+            background-color: var(--warning);
         }
         
         .type {

@@ -1,5 +1,6 @@
 .footer-legal {
-    background-color: var(--accent-color-night);
+    background-color: var(--base-dark);
+    color: var(--text-on-dark);
     
     .footer-legal__inner {
         display: flex;
@@ -12,6 +13,10 @@
         gap: calc(var(--main-gap) / 2);
         padding: 0;
         list-style: none;
+
+        a {
+            text-decoration: underline;
+        }
     
         @media (width > 26rem) {
             grid-auto-flow: column;

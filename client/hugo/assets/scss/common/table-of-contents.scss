@@ -16,14 +16,14 @@
 
             & > a {
                 display: block;
-                background-color: var(--dark-bg-color-light);
+                background-color: var(--base);
                 border-radius: var(--border-radius);
                 padding: calc(var(--main-gap) / 2);
                 font-family: var(--ff-accent);
                 font-size: 1.2rem;
                 line-height: 1;
                 text-decoration: none;
-                color: var(--light-text-color);
+                color: var(--text-on-dark);
             }
         }
     }

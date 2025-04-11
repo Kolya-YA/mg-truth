@@ -11,13 +11,13 @@
         aspect-ratio: 2;
         background: 
             var(--page-header-bg-image),
-            var(--dark-bg-gradient, var(--dark-bg-color));
+            var(--dark-bg-gradient, var(--base-dark));
         background-blend-mode: overlay;
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
         padding: var(--page-header-padding);
-        color: var(--light-text-color);
+        color: var(--text-on-dark);
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -41,7 +41,7 @@
         border-radius: var(--border-radius);
         box-shadow: var(--box-shadow);
         text-decoration: none;
-        color: var(--dark-text-color);
+        color: var(--text-on-light);
         transition: background-color 300ms ease;
 
         &:is(:hover, :focus-visible) {

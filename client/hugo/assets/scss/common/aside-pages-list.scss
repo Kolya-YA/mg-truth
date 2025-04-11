@@ -16,7 +16,7 @@
         border-radius: var(--border-radius);
         box-shadow: var(--box-shadow);
         text-decoration: none;
-        color: var(--dark-text-color);
+        color: var(--text-on-light);
         transition: background-color 300ms ease;
 
         &:is(:hover, :focus-visible) {

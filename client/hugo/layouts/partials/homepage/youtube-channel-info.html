@@ -5,13 +5,13 @@
     {{- $channelLogo := .thumbnails.medium.url }}
     {{ $channelLogo = partial "common/get-remote-img" $channelLogo -}}
 
-    <p>{{ .description }}</p>
-    <div>
+    <p class="youtube-info__description">{{ .description }}</p>
+    <div class="youtube-info__header">
         <img src="{{ $channelLogo.RelPermalink }}" alt="channel logo" width={{ $channelLogo.Width }} height={{
              $channelLogo.Height }}>
         <h2>{{ .title }}</h2>
     </div>
-    <ul class="youtube-info__stats">
+    <ul class="youtube-info__stats" role="list">
         <li>
             <span>{{ (substr $stat.subscriberCount 0 -3) | lang.FormatNumber 0 }} тыс.</span>
             подписчиков

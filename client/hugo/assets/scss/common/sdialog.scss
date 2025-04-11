@@ -4,13 +4,13 @@
     max-width: 38ch;
     // inset: 0;
     margin: auto;
-    border: 2px solid var(--accent-color);
+    border: 2px solid var(--accent);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     
     &::backdrop {
-        background: var(--accent-color-night);
-        background: linear-gradient(45deg, var(--accent-color-dark), var(--link-color-dark));
+        background: var(--accent);
+        background: linear-gradient(45deg, var(--accent), var(--link-color-dark));
         opacity: .7;
     }
 
@@ -19,7 +19,7 @@
         top: var(--main-gap);
         right: var(--main-gap);
         border: 0;
-        background-color: var(--accent-color);
+        background-color: var(--accent);
         border-radius: var(--border-radius);
     }
 }
