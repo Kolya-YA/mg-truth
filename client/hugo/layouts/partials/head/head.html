@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{{ $styles.RelPermalink }}" integrity="{{ $styles.Data.Integrity }}">
     <meta property="og:title" content="{{ $title }}">
     <meta name="description" content="{{ $description }}">
-    {{/*  <meta property="og:description" content="{{ $description }}">  */}}
+    <meta property="og:description" content="{{ $description }}">
     {{/*  <meta property="og:image" content="{{ $ogImg.Permalink }}"> */}}
     <meta property="og:locale" content="{{ with site.LanguageCode | default site.Language.Lang }}{{ . }}{{ end }}">
     <meta property="og:type" content="website">
