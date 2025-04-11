@@ -1,6 +1,6 @@
 const sendTelegramMessage = async (videoData, env) => {
     const url = `https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`;
-    const tgMsg = createTgMsg(videoData);
+    const tgMsg = createTgMsg(videoData, env);
 
     const response = await fetch(url, {
         method: "POST",
@@ -28,7 +28,7 @@ const sendTelegramMessage = async (videoData, env) => {
 
 export { sendTelegramMessage };
 
-function createTgMsg(videoData) {
+function createTgMsg(videoData, env) {
     const bStatus = videoData.broadcastStatus;
     const status = bStatus === 'upcoming'
         ? 'АНОНСИРОВАНО'
