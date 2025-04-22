@@ -6,6 +6,7 @@
         "videoId" .id
         "title" (index $title 0 | strings.TrimSpace)
         "type" (index $title 1 | strings.TrimSpace)
+        "date" (index $title 2 | strings.TrimSpace)
         "broadcastStatus" .liveBroadcastContent
         "pubDate" (time.Format "02.01.2006" (time .publishedAt))
         "thumb" (partial "common/get-remote-img" .thumbnails.medium.url)

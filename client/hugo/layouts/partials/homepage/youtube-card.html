@@ -9,7 +9,8 @@
         <h4 class="title">{{ .title }}</h4>
         <img class="image" src="{{ .thumb.RelPermalink }}" alt="{{ .title }}" width="{{ .thumb.Width }}" height="{{ .thumb.Height }}" loading="lazy">
         <div class="info">
-            <p class="date">{{ .pubDate }}</p>
+            <p class="date">{{ .date }}</p>
+            {{/*  <p class="date">{{ .pubDate }}</p>  */}}
             {{ with $broadcastStatus }}
             <p class="broadcast">{{ . }}</p>
             {{ end }}
