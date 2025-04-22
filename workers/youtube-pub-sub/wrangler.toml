@@ -19,6 +19,7 @@ enabled = false
 binding = "MG_TG_MSG"
 id = "33667da528ad4702ae47cf1b8d557e0a"
 
+
 [vars]
 PUBSUBHUBBUB_HUB = "https://pubsubhubbub.appspot.com/subscribe"
 LEASE_DAYS = 8
@@ -26,4 +27,17 @@ CALLBACK_URL = "https://youtube-pub-sub.kolya-ya.workers.dev/"
 DEPLOY_HOOK_URL = "https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/e106f99d-ae7b-4f4f-a42c-e274439a49e4"
 YOUTUBE_CHANNEL_ID = "UCA_2oV10_uipWBWlyfJj16w"
 TELEGRAM_CHAT_ID = "-1002613021423"
+SITE_URL = "https://mg-truth.plus360.eu/"
+
+[[env.dev.kv_namespaces]]
+binding = "MG_TG_MSG"
+id = "33667da528ad4702ae47cf1b8d557e0a"
+
+[env.dev.vars]
+PUBSUBHUBBUB_HUB = "https://pubsubhubbub.appspot.com/subscribe"
+LEASE_DAYS = 8
+CALLBACK_URL = "https://youtube-pub-sub.kolya-ya.workers.dev/"
+DEPLOY_HOOK_URL = "https://api.cloudflare.com/client/v4/pages/webhooks/deploy_hooks/e106f99d-ae7b-4f4f-a42c-e274439a49e4"
+YOUTUBE_CHANNEL_ID = "UCA_2oV10_uipWBWlyfJj16w"
+TELEGRAM_CHAT_ID = "-1002585462333"
 SITE_URL = "https://mg-truth.plus360.eu/"

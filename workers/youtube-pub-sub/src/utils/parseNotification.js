@@ -7,15 +7,14 @@ const parseNotification = async (request, env) => {
     
     // fetch video data by id from Youtube API
     videoData.broadcastStatus = await fetchStatusOfVideo(videoData.videoId, env);
+    // console.log("VideoID:", videoData.videoId);
     // Get the message ID from KV
     const publishedMsg = await env.MG_TG_MSG.getWithMetadata(videoData.videoId)
     
-    // console.log("VideoID:", videoData.videoId);
-    // console.log("KV list: ", await env.MG_TG_MSG.list());
     // console.log("Published message:", publishedMsg?.metadata?.broadcastStatus === videoData.broadcastStatus);
     
     if (publishedMsg?.metadata?.broadcastStatus === videoData.broadcastStatus) {
-        return false;
+        throw new HtmlError('Already published', 400);
     }
     
     return videoData
