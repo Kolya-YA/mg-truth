@@ -21,13 +21,13 @@
             <h3>Ежемесячная поддержка</h3>
             <ul class="donation__list">
                 {{- range $monthly }}
-                    {{ partial "partials/homepage/donation-card.html" . }}
+                    {{ partial "homepage/donation-card.html" . }}
                 {{- end }}
             </ul>
             <h3>Однократная поддержка</h3>
             <ul class="donation__list">
                 {{- range $single }}
-                    {{ partial "partials/homepage/donation-card.html" . }}
+                    {{ partial "homepage/donation-card.html" . }}
                 {{- end }}
             </ul>
             {{/*  <pre>debug: {{ debug.Dump ($data) }}</pre>  */}}
