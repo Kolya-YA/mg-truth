@@ -4,6 +4,8 @@ title = 'Матвей Ганопольский: YouTube канал, книги, 
 
 disableKinds = ["taxonomy", "term", ]
 ignoreFiles = ['/book-shop']
+enableRobotsTXT = true
+
 [params]
     description = "Проекты Матвея Ганапольского. Узнайте о его информационных и развлекательных проектах, смотрите видео с YouTube и поддержите автора"
     logoName = "Ганапольская правда"
