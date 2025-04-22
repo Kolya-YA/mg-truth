@@ -8,12 +8,10 @@ const createTelegramMessage = (videoData, env) => {
             : 'ОПУБЛИКОВАНО';
 
     return `
-<b>${status}</b> видео
-<a href = "${videoData.url}" > ${videoData.title}</a>
+<b>${status}</b> видео <a href = "${videoData.url}" >${videoData.title}</a>
 
 Официальный YouTube канал <a href="${videoData.channelUrl}"><b>${videoData.channelTitle}</b></a>
 Подробности на <a href="${env.SITE_URL}"><b>сайте</b></a>`;
-
 }
 
 export { createTelegramMessage };
