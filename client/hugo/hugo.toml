@@ -1,6 +1,6 @@
 baseURL = 'https://mg-truth.plus360.eu/'
 languageCode = 'ru'
-title = 'Матвей Ганопольский: YouTube канал "Ганапольская правда", книги, новости'
+title = 'Матвей Ганопольский: YouTube канал, книги, новости'
 
 disableKinds = ["taxonomy", "term", ]
 ignoreFiles = ['/book-shop']
@@ -15,10 +15,9 @@ ignoreFiles = ['/book-shop']
         donateURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSwu-hrqAQHqcOvq5VRanJz1PiKjrCp0nft2WdMDVIIee2dQ5zOVQqdqbeRXIC6I904CK3YyPYJYNp8/pub?gid=0&single=true&output=csv"
 
     [params.youtube]
-        # feedURL = "http://localhost:8787/"
         channelUrl = "https://www.youtube.com/@Ganapolsky"
         feedURL = "https://yt-api-proxy.kolya-ya.workers.dev/"
-        channelId = "UCA_2oV10_uipWBWlyfJj16w"  # channel ID
+        channelId = "UCA_2oV10_uipWBWlyfJj16w"
         maxResults = 10
     [params.shop]
         shopIsEnabled = false
