@@ -5,7 +5,7 @@
 	"scripts": {
 		"deploy": "wrangler deploy",
 		"dev": "wrangler dev --env dev",
-		"dev-sch": "wrangler dev --test-scheduled --remote",
+		"dev-sch": "wrangler dev --test-scheduled",
 		"start": "wrangler dev"
 	},
 	"devDependencies": {

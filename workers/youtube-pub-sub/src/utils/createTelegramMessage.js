@@ -2,10 +2,10 @@ const createTelegramMessage = (videoData, env) => {
     const bStatus = videoData.broadcastStatus;
     
     const status = bStatus === 'upcoming'
-        ? 'АНОНСИРОВАНО'
+        ? '📢 АНОНСИРОВАНО'
         : bStatus === 'live'
-            ? 'В ЭФИРЕ'
-            : 'ОПУБЛИКОВАНО';
+            ? '📺 В ЭФИРЕ'
+            : '✔️ ОПУБЛИКОВАНО';
 
     return `
 <b>${status}</b> видео <a href = "${videoData.url}" >${videoData.title}</a>
